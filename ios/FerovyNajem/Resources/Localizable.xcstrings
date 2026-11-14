@@ -1,0 +1,1408 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "%@ above the MF median": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ nad mediánem MF"
+          }
+        }
+      }
+    },
+    "%@ below the MF median": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ pod mediánem MF"
+          }
+        }
+      }
+    },
+    "%@ below the MF median – matches a common scam pattern": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ pod mediánem MF – odpovídá častému vzorci podvodu"
+          }
+        }
+      }
+    },
+    "%@ – active, no insolvency": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ – aktivní, bez insolvence"
+          }
+        }
+      }
+    },
+    "%@ – found": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ – nalezena"
+          }
+        }
+      }
+    },
+    "%@ – not found": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ – nenalezena"
+          }
+        }
+      }
+    },
+    "%lld warning signs": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld warning sign"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld warning signs"
+                }
+              }
+            }
+          }
+        },
+        "cs": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld varovný signál"
+                }
+              },
+              "few": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld varovné signály"
+                }
+              },
+              "many": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld varovného signálu"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld varovných signálů"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "0": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "0"
+          }
+        }
+      }
+    },
+    "A change of ownership or lien is being registered on this unit": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "U jednotky se zapisuje změna vlastníka nebo zástava"
+          }
+        }
+      }
+    },
+    "A few questions": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pár otázek"
+          }
+        }
+      }
+    },
+    "A few things to check": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pár věcí k ověření"
+          }
+        }
+      }
+    },
+    "About": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O aplikaci"
+          }
+        }
+      }
+    },
+    "Active": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktivní"
+          }
+        }
+      }
+    },
+    "Address": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adresa"
+          }
+        }
+      }
+    },
+    "Are you pushed to pay today or lose the flat?": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tlačí na vás, ať zaplatíte ještě dnes, jinak byt přijde jinému?"
+          }
+        }
+      }
+    },
+    "Ask the landlord for the unit number (číslo jednotky) or the LV number. A genuine owner can give it right away.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Požádejte pronajímatele o číslo jednotky nebo číslo LV. Skutečný vlastník ho dá hned."
+          }
+        }
+      }
+    },
+    "Building": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Budova"
+          }
+        }
+      }
+    },
+    "Building found. Checked at building level only.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Budova nalezena. Ověřeno jen na úrovni domu."
+          }
+        }
+      }
+    },
+    "Business and insolvency registers": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Registr ekonomických subjektů a insolvenční rejstřík"
+          }
+        }
+      }
+    },
+    "Cadastral area": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Katastrální území"
+          }
+        }
+      }
+    },
+    "Cadastre of Real Estate, CC BY 4.0": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Katastr nemovitostí, CC BY 4.0"
+          }
+        }
+      }
+    },
+    "Change": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Změnit"
+          }
+        }
+      }
+    },
+    "Check": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pozor"
+          }
+        }
+      }
+    },
+    "Check before you pay the deposit": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prověřte, než zaplatíte kauci"
+          }
+        }
+      }
+    },
+    "Check the owner yourself": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ověřte si vlastníka sami"
+          }
+        }
+      }
+    },
+    "Checking the cadastre, rent map and registers…": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prověřujeme katastr, cenovou mapu a rejstříky…"
+          }
+        }
+      }
+    },
+    "Company": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Firma"
+          }
+        }
+      }
+    },
+    "Compare the owner's name with the person you are talking to.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Porovnejte jméno vlastníka s člověkem, se kterým jednáte."
+          }
+        }
+      }
+    },
+    "Compare the rent with the Ministry of Finance rent map.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Porovnáme nájem s cenovou mapou Ministerstva financí."
+          }
+        }
+      }
+    },
+    "Continue": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pokračovat"
+          }
+        }
+      }
+    },
+    "Data as of %@. Sources: ČÚZK (CC BY 4.0), MF ČR, ARES, ISIR.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Data k %@. Zdroje: ČÚZK (CC BY 4.0), MF ČR, ARES, ISIR."
+          }
+        }
+      }
+    },
+    "Data period": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Období dat"
+          }
+        }
+      }
+    },
+    "Data sources": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zdroje dat"
+          }
+        }
+      }
+    },
+    "Demo": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Demo"
+          }
+        }
+      }
+    },
+    "Deposit requested before viewing": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kauce požadována před prohlídkou"
+          }
+        }
+      }
+    },
+    "Did they avoid giving you the unit number or LV when you asked?": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nechtěli vám sdělit číslo jednotky nebo LV, když jste se zeptali?"
+          }
+        }
+      }
+    },
+    "Different name? Ask for a power of attorney or the lease between the owner and the landlord.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jiné jméno? Požádejte o plnou moc nebo o nájemní smlouvu mezi vlastníkem a pronajímatelem."
+          }
+        }
+      }
+    },
+    "Do they want a deposit before you see the flat in person?": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chtějí kauci dřív, než byt uvidíte osobně?"
+          }
+        }
+      }
+    },
+    "Does the flat exist in the cadastre? Is an ownership change in progress?": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Existuje byt v katastru? Neprobíhá změna vlastníka?"
+          }
+        }
+      }
+    },
+    "Does the landlord say they are abroad and can't meet?": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tvrdí pronajímatel, že je v zahraničí a nemůže se sejít?"
+          }
+        }
+      }
+    },
+    "Done": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hotovo"
+          }
+        }
+      }
+    },
+    "E.g. 12 from 1001/12. Don't have it? We'll check the building – and ask the landlord: a genuine owner knows it.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Např. 12 z 1001/12. Nemáte ho? Ověříme dům – a zeptejte se pronajímatele: skutečný vlastník ho zná."
+          }
+        }
+      }
+    },
+    "Enter the address and rent. In a minute you'll see what public registers say.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zadejte adresu a nájem. Za minutu uvidíte, co říkají veřejné registry."
+          }
+        }
+      }
+    },
+    "Enter the company's IČO to check it in ARES and the insolvency register.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zadejte IČO firmy a ověříme ji v ARES a insolvenčním rejstříku."
+          }
+        }
+      }
+    },
+    "Find the flat by address and unit number.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Najděte byt podle adresy a čísla jednotky."
+          }
+        }
+      }
+    },
+    "Flat": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Byt"
+          }
+        }
+      }
+    },
+    "Flat (byt)": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Byt"
+          }
+        }
+      }
+    },
+    "Flood zones": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Záplavová území"
+          }
+        }
+      }
+    },
+    "Floor area": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plocha"
+          }
+        }
+      }
+    },
+    "Found": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nalezena"
+          }
+        }
+      }
+    },
+    "Férový nájem compares a rental offer with public data. It gives indicative information, not a legal assessment.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Férový nájem porovná nabídku nájmu s veřejnými daty. Jde o orientační informace, nikoli o právní posouzení."
+          }
+        }
+      }
+    },
+    "Get started": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Začít"
+          }
+        }
+      }
+    },
+    "How is the deal going?": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jak domluva probíhá?"
+          }
+        }
+      }
+    },
+    "Inactive": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neaktivní"
+          }
+        }
+      }
+    },
+    "Indicative information, not a legal assessment.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Orientační informace, není právní posouzení."
+          }
+        }
+      }
+    },
+    "Inside a flood zone (Q100)": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "V záplavovém území (Q100)"
+          }
+        }
+      }
+    },
+    "Insolvency register": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Insolvenční rejstřík"
+          }
+        }
+      }
+    },
+    "Is the company real, active and not insolvent?": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je firma skutečná, aktivní a bez insolvence?"
+          }
+        }
+      }
+    },
+    "Is the viewing offered only by video or photos?": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nabízejí prohlídku jen přes video nebo fotky?"
+          }
+        }
+      }
+    },
+    "IČO": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "IČO"
+          }
+        }
+      }
+    },
+    "IČO (optional)": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "IČO (nepovinné)"
+          }
+        }
+      }
+    },
+    "LV": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "LV"
+          }
+        }
+      }
+    },
+    "Landlord": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pronajímatel"
+          }
+        }
+      }
+    },
+    "Landlord company": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Firma pronajímatele"
+          }
+        }
+      }
+    },
+    "Landlord says they are abroad": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pronajímatel tvrdí, že je v zahraničí"
+          }
+        }
+      }
+    },
+    "Layout": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dispozice"
+          }
+        }
+      }
+    },
+    "MF median": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medián MF"
+          }
+        }
+      }
+    },
+    "Monthly rent": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Měsíční nájem"
+          }
+        }
+      }
+    },
+    "Near a flood zone (Q100)": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blízko záplavového území (Q100)"
+          }
+        }
+      }
+    },
+    "New check": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nová kontrola"
+          }
+        }
+      }
+    },
+    "No IČO entered. Private landlord? Use the owner check below.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "IČO nezadáno. Soukromý pronajímatel? Použijte ověření vlastníka níže."
+          }
+        }
+      }
+    },
+    "No record": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bez záznamu"
+          }
+        }
+      }
+    },
+    "No typical scam patterns in your answers": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ve vašich odpovědích nejsou typické znaky podvodu"
+          }
+        }
+      }
+    },
+    "No warning signs found": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Žádné varovné signály"
+          }
+        }
+      }
+    },
+    "Non-residential space": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nebytový prostor"
+          }
+        }
+      }
+    },
+    "None": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Žádná"
+          }
+        }
+      }
+    },
+    "Not checked": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neověřeno"
+          }
+        }
+      }
+    },
+    "Not enough data": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nedostatek dat"
+          }
+        }
+      }
+    },
+    "Not found": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenalezena"
+          }
+        }
+      }
+    },
+    "Not in a mapped flood zone": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mimo mapovaná záplavová území"
+          }
+        }
+      }
+    },
+    "OK": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        }
+      }
+    },
+    "Only if you rent from a company.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jen pokud pronajímá firma."
+          }
+        }
+      }
+    },
+    "Open Nahlížení do katastru": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Otevřít Nahlížení do katastru"
+          }
+        }
+      }
+    },
+    "Open Nahlížení do katastru and sign in with your eID (e.g. bank identity).": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Otevřete Nahlížení do katastru a přihlaste se přes eID (např. bankovní identitou)."
+          }
+        }
+      }
+    },
+    "Other proceeding": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jiné řízení"
+          }
+        }
+      }
+    },
+    "Payment to a foreign bank account": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Platba na zahraniční účet"
+          }
+        }
+      }
+    },
+    "Pending proceedings": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Probíhající řízení"
+          }
+        }
+      }
+    },
+    "Pressure to pay immediately": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nátlak na okamžitou platbu"
+          }
+        }
+      }
+    },
+    "Price": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cena"
+          }
+        }
+      }
+    },
+    "Price far below the MF median": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cena hluboko pod mediánem MF"
+          }
+        }
+      }
+    },
+    "Privacy": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soukromí"
+          }
+        }
+      }
+    },
+    "Property": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nemovitost"
+          }
+        }
+      }
+    },
+    "Q100 is the area flooded on average once in 100 years. Ask about the flood history and insurance.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Q100 je území zaplavované v průměru jednou za 100 let. Zeptejte se na historii povodní a pojištění."
+          }
+        }
+      }
+    },
+    "Received %@": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Přijato %@"
+          }
+        }
+      }
+    },
+    "Recent checks stay on this phone.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nedávné kontroly zůstávají jen v tomto telefonu."
+          }
+        }
+      }
+    },
+    "Registered use": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Způsob využití"
+          }
+        }
+      }
+    },
+    "Rent and size": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nájem a velikost"
+          }
+        }
+      }
+    },
+    "Rent price map (cenová mapa nájemního bydlení)": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cenová mapa nájemního bydlení"
+          }
+        }
+      }
+    },
+    "Rent without utilities and service charges.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nájem bez služeb a energií."
+          }
+        }
+      }
+    },
+    "Report": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Výsledek"
+          }
+        }
+      }
+    },
+    "Reports are not stored on our servers.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Výsledky kontrol neukládáme na serveru."
+          }
+        }
+      }
+    },
+    "Scam patterns": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Znaky podvodu"
+          }
+        }
+      }
+    },
+    "Serious warning signs": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vážné varovné signály"
+          }
+        }
+      }
+    },
+    "Should you pay to a foreign bank account?": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Máte platit na zahraniční účet?"
+          }
+        }
+      }
+    },
+    "Show report": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zobrazit výsledek"
+          }
+        }
+      }
+    },
+    "Status in ARES": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stav v ARES"
+          }
+        }
+      }
+    },
+    "Still: never pay a deposit before you have seen the flat and the contract.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I tak: nikdy neplaťte kauci, dokud neuvidíte byt a smlouvu."
+          }
+        }
+      }
+    },
+    "Street and house number": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ulice a číslo domu"
+          }
+        }
+      }
+    },
+    "Studio (ateliér)": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ateliér"
+          }
+        }
+      }
+    },
+    "The MF map is based on asking prices and is not authoritative.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mapa MF vychází z nabídkových cen a není závazná."
+          }
+        }
+      }
+    },
+    "These patterns are common in rental scams. They don't prove anything about a specific person.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tyto vzorce jsou u podvodů s nájmy časté. O konkrétním člověku nic nedokazují."
+          }
+        }
+      }
+    },
+    "This building has no separate units, so only the building was checked.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dům nemá vymezené jednotky, proto jsme ověřili jen budovu."
+          }
+        }
+      }
+    },
+    "Typical warning signs from how the deal is going.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Typické varovné signály podle průběhu domluvy."
+          }
+        }
+      }
+    },
+    "Unit": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jednotka"
+          }
+        }
+      }
+    },
+    "Unit %@ exists and is registered as a flat": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jednotka %@ existuje a je zapsána jako byt"
+          }
+        }
+      }
+    },
+    "Unit %@ is a flat; the building has a pending proceeding": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jednotka %@ je byt; na domě probíhá řízení"
+          }
+        }
+      }
+    },
+    "Unit %@ is registered as a studio (ateliér), not a flat": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jednotka %@ je zapsána jako ateliér, ne jako byt"
+          }
+        }
+      }
+    },
+    "Unit %@ is registered as non-residential space": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jednotka %@ je zapsána jako nebytový prostor"
+          }
+        }
+      }
+    },
+    "Unit %@ was not found in this building": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jednotka %@ v tomto domě nebyla nalezena"
+          }
+        }
+      }
+    },
+    "Unit number (optional)": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Číslo jednotky (nepovinné)"
+          }
+        }
+      }
+    },
+    "Unit number or LV not provided": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Číslo jednotky nebo LV nesděleno"
+          }
+        }
+      }
+    },
+    "Version": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verze"
+          }
+        }
+      }
+    },
+    "Viewing only by video or photos": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prohlídka jen přes video nebo fotky"
+          }
+        }
+      }
+    },
+    "Vklad – a change of ownership or a lien is being registered": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vklad – zapisuje se změna vlastníka nebo zástavní právo"
+          }
+        }
+      }
+    },
+    "Warning": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Varování"
+          }
+        }
+      }
+    },
+    "We never show or store owner names.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jména vlastníků nikdy nezobrazujeme ani neukládáme."
+          }
+        }
+      }
+    },
+    "We never show owner names. You can check the owner yourself with your eID – we'll show you how.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jména vlastníků nikdy nezobrazujeme. Vlastníka si můžete ověřit sami přes eID – ukážeme vám jak."
+          }
+        }
+      }
+    },
+    "What it is": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Co to je"
+          }
+        }
+      }
+    },
+    "Within the usual range for %@": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "V obvyklém rozmezí pro k. ú. %@"
+          }
+        }
+      }
+    },
+    "Your answers stay on this phone and only affect this report.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Odpovědi zůstávají v telefonu a ovlivní jen tento výsledek."
+          }
+        }
+      }
+    },
+    "Your rent": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Váš nájem"
+          }
+        }
+      }
+    },
+    "Your rent %@, median %@": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Váš nájem %@, medián %@"
+          }
+        }
+      }
+    },
+    "Záznam – a right is being recorded based on an official decision": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Záznam – zapisuje se právo na základě úředního rozhodnutí"
+          }
+        }
+      }
+    },
+    "median %@": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "medián %@"
+          }
+        }
+      }
+    },
+    "on the building": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "na domě"
+          }
+        }
+      }
+    },
+    "on the unit": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "na jednotce"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

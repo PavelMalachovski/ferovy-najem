@@ -37,4 +37,9 @@ cd backend && uv sync                     # deps + Python 3.12 managed by uv
 cd backend && uv run pytest
 cd backend && uv run ruff check . && uv run ruff format --check .
 cd backend && uv run python -m scripts.probe_api_kn   # live API KN probe, writes fixtures
+cd ios && xcodegen generate && open FerovyNajem.xcodeproj   # .xcodeproj is generated, not committed
+cd ios && xcodebuild -project FerovyNajem.xcodeproj -scheme FerovyNajem \
+  -destination 'platform=iOS Simulator,name=iPhone 18 Pro' -derivedDataPath build build
+# DEBUG deep links for screenshots:
+xcrun simctl launch booted cz.ferovynajem.app -screen report -demo red -expand YES -scroll bottom
 ```
