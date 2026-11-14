@@ -110,10 +110,10 @@ private struct PriceCard: View {
 
     private var summary: Text {
         switch price.verdict {
-        case .farBelow: Text("\(pct) below the MF median – matches a common scam pattern")
-        case .below: Text("\(pct) below the MF median")
+        case .farBelow: Text("\(pct) below the MF reference rent – matches a common scam pattern")
+        case .below: Text("\(pct) below the MF reference rent")
         case .typical: Text("Within the usual range for \(price.kuName)")
-        case .above, .farAbove: Text("\(pct) above the MF median")
+        case .above, .farAbove: Text("\(pct) above the MF reference rent")
         }
     }
 
@@ -122,10 +122,14 @@ private struct PriceCard: View {
                   expanded: expanded) {
             PriceRangeBar(price: price).padding(.vertical, 4)
             DetailRow("Your rent", Text(verbatim: price.askingPerM2.czkPerM2))
-            DetailRow("MF median", Text(verbatim: price.medianPerM2.czkPerM2))
+            DetailRow("MF reference rent", Text(verbatim: price.referencePerM2.czkPerM2))
+            if price.surchargePerM2 > 0 {
+                DetailRow("incl. features", Text(verbatim: "+" + price.surchargePerM2.czkPerM2))
+            }
+            DetailRow("Asking prices in the area", Text(verbatim: "\(price.minPerM2.czk) – \(price.maxPerM2.czkPerM2)"))
             DetailRow("Cadastral area", Text(verbatim: price.kuName))
             DetailRow("Data period", Text(verbatim: price.period))
-            Text("The MF map is based on asking prices and is not authoritative.")
+            Text("The MF map is based on asking prices and is not authoritative. Rent without service charges.")
                 .font(.footnote)
                 .foregroundStyle(.secondary)
         }
@@ -376,7 +380,7 @@ extension ScamFlag {
         case .ownerAbroad: "Landlord says they are abroad"
         case .pressureToPay: "Pressure to pay immediately"
         case .unitNumberWithheld: "Unit number or LV not provided"
-        case .priceFarBelowMedian: "Price far below the MF median"
+        case .priceFarBelowMedian: "Price far below the MF reference rent"
         }
     }
 }

@@ -1,32 +1,32 @@
 {
   "sourceLanguage": "en",
   "strings": {
-    "%@ above the MF median": {
+    "%@ above the MF reference rent": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "%@ nad mediánem MF"
+            "value": "%@ nad referenčním nájemným MF"
           }
         }
       }
     },
-    "%@ below the MF median": {
+    "%@ below the MF reference rent": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "%@ pod mediánem MF"
+            "value": "%@ pod referenčním nájemným MF"
           }
         }
       }
     },
-    "%@ below the MF median – matches a common scam pattern": {
+    "%@ below the MF reference rent – matches a common scam pattern": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "%@ pod mediánem MF – odpovídá častému vzorci podvodu"
+            "value": "%@ pod referenčním nájemným MF – odpovídá častému vzorci podvodu"
           }
         }
       }
@@ -199,6 +199,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Požádejte pronajímatele o číslo jednotky nebo číslo LV. Skutečný vlastník ho dá hned."
+          }
+        }
+      }
+    },
+    "Asking prices in the area": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nabídkové ceny v lokalitě"
+          }
+        }
+      }
+    },
+    "Balcony": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Balkon"
           }
         }
       }
@@ -543,12 +563,32 @@
         }
       }
     },
+    "Furnished": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vybavený nábytkem"
+          }
+        }
+      }
+    },
     "Férový nájem compares a rental offer with public data. It gives indicative information, not a legal assessment.": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
             "value": "Férový nájem porovná nabídku nájmu s veřejnými daty. Jde o orientační informace, nikoli o právní posouzení."
+          }
+        }
+      }
+    },
+    "Garage or parking included": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Garáž nebo parkování v ceně"
           }
         }
       }
@@ -703,12 +743,32 @@
         }
       }
     },
-    "MF median": {
+    "Lift": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Medián MF"
+            "value": "Výtah"
+          }
+        }
+      }
+    },
+    "MF %@": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MF %@"
+          }
+        }
+      }
+    },
+    "MF reference rent": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Referenční nájemné MF"
           }
         }
       }
@@ -729,6 +789,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Blízko záplavového území (Q100)"
+          }
+        }
+      }
+    },
+    "New build (up to 5 years)": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Novostavba (do 5 let)"
           }
         }
       }
@@ -933,12 +1003,12 @@
         }
       }
     },
-    "Price far below the MF median": {
+    "Price far below the MF reference rent": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Cena hluboko pod mediánem MF"
+            "value": "Cena hluboko pod referenčním nájemným MF"
           }
         }
       }
@@ -1133,12 +1203,32 @@
         }
       }
     },
-    "The MF map is based on asking prices and is not authoritative.": {
+    "Terrace": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mapa MF vychází z nabídkových cen a není závazná."
+            "value": "Terasa"
+          }
+        }
+      }
+    },
+    "The MF map is based on asking prices and is not authoritative. Rent without service charges.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mapa MF vychází z nabídkových cen a není závazná. Nájem bez služeb."
+          }
+        }
+      }
+    },
+    "The MF map prices these extras separately, so we adjust the comparison.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mapa MF tyto prvky oceňuje zvlášť, proto srovnání upravíme."
           }
         }
       }
@@ -1323,6 +1413,16 @@
         }
       }
     },
+    "What's included": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Co byt nabízí"
+          }
+        }
+      }
+    },
     "Within the usual range for %@": {
       "localizations": {
         "cs": {
@@ -1353,12 +1453,12 @@
         }
       }
     },
-    "Your rent %@, median %@": {
+    "Your rent %@, MF reference rent %@": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Váš nájem %@, medián %@"
+            "value": "Váš nájem %@, referenční nájemné MF %@"
           }
         }
       }
@@ -1373,12 +1473,12 @@
         }
       }
     },
-    "median %@": {
+    "incl. features": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "medián %@"
+            "value": "z toho příplatky"
           }
         }
       }

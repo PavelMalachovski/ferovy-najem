@@ -152,7 +152,7 @@ Checked against `2026-11-15_Cenova-mapa.xlsx` (Q3 2026, published 2026-11-11) an
 - **Size category (VK)** by disposition: 1 = 1+kk, 1+1; 2 = 2+kk, 2+1; 3 = 3+kk, 3+1; 4 = 4 rooms and more. (File says "2+2", "3+3" — MF typos.)
 - **Per VK, all integers in Kč/m²/month**: model rent of the reference flat (hedonic model), its 95 % lower/upper interval, model rent for a new-build (≤ 5 y), raw asking min / max / median, data coverage 1–5 (0–30 / 31–60 / 61–90 / 90–150 / 150+ observations). No missing values.
 - **Service charges: EXCLUDED** (info sheet): "Nájemné v sobě neobsahuje vyúčtovatelné složky, které jsou standardně hrazeny spolu s nájemným jako např. energie, voda, odpad atd." Stated for model values; unclear for raw min/max/median. → Input asks for rent **without** zálohy.
-- **Reference flat** is unfurnished, no balcony/terrace/garage/lift; surcharges in Kč/m² per kraj and VK on the info sheet (e.g. Praha VK3: lift +48, furnished +27). Reference sizes per kraj and VK (Praha: 35/53/71/88 m²).
+- **Reference flat** is unfurnished, no balcony/terrace/garage/lift, older than 5 years. Surcharges in Kč/m² are **national, per VK**, with a separate table for new-builds (info sheet rows 51–62). Q3 2026, older flats, VK1–4: balcony 16/8/4/8, terrace 36/38/34/26, furnished 30/32/27/23, garage 45/49/38/33, lift 41/45/48/61. Reference sizes per kraj and VK (Praha: 35/53/71/88 m²).
 - **Data quality**: min 150 observations per unit (Praha/Brno/Ostrava 70), missing data filled from neighbours up to 30 km (1 km in the three cities). Coverage = 1 in ~90 % of rows → use coverage as a confidence flag; raw min/max are often pooled from neighbours.
 - **Time window**: file text says 5 years (1.10.2021–30.9.2026), methodology says 4 years. Inconsistent; don't rely on it.
 
@@ -178,7 +178,8 @@ Checked against `2026-11-15_Cenova-mapa.xlsx` (Q3 2026, published 2026-11-11) an
 ```
 GET  /v1/address/suggest?q=...           → [{ruian_code, label, lat, lon}]
 POST /v1/report
-     { ruian_code, unit_number?, rent_czk, area_m2, disposition, landlord_ico?, answers{...} }
+     { ruian_code, unit_number?, rent_czk, area_m2, disposition, landlord_ico?,
+       features{ lift, balcony, terrace, furnished, garage, new_build }, answers{...} }
      → { overall: green|yellow|red,
          price:     { status, asking_per_m2, reference_per_m2, band_low, band_high, raw_min, raw_median, raw_max, coverage, ratio, unit_name, unit_kind: ku|obec, size_category, period },
          property:  { status, check_level: unit|building, building_found, unit_found, unit_use, proceedings[{type, status, received, scope: unit|building}], hints[], kn_deeplink, data_as_of },
@@ -195,7 +196,7 @@ Anti-fraud signal **`unit_number_withheld`**: raised from the questionnaire answ
 
 ### Scoring (initial, tunable — keep thresholds in config)
 
-Price ratio = asking rent per m² (without service charges) / MF **reference rent (model)** for the territorial unit + size category. Raw asking median/min/max are shown as context only (often pooled from neighbours). Low coverage (1–2) → show "limited data" and cap the price block at yellow.
+Price ratio = asking rent per m² (without service charges) / expected rent, where expected = MF **reference rent (model)** for the territorial unit + size category (new-build model if `new_build`) + Σ MF surcharges for the selected `features`. Raw asking median/min/max are shown as context only (often pooled from neighbours). Low coverage (1–2) → show "limited data" and cap the price block at yellow.
 - `< 0.70` → **red** ("suspiciously cheap — common scam pattern")
 - `0.70–0.85` → yellow
 - `0.85–1.15` → green
@@ -210,7 +211,7 @@ Wording: never "unfair"/"scam" as a verdict about a person. Use "X % above the M
 
 Screens:
 1. **Onboarding** (1 screen): what it checks, what it doesn't.
-2. **Input**: address autocomplete → optional unit number (číslo jednotky; helper text: "Don't have it? We'll check the building. Ask the landlord for it.") → rent → area → disposition → optional landlord IČO.
+2. **Input**: address autocomplete → optional unit number (číslo jednotky; helper text: "Don't have it? We'll check the building. Ask the landlord for it.") → rent without service charges → area → disposition → features (lift, balcony, terrace, furnished, garage/parking, new build) → optional landlord IČO.
 3. **Scam questionnaire**: 5–7 yes/no questions, incl. "Did the landlord refuse or avoid giving the unit number / LV?" (→ `unit_number_withheld`).
 4. **Report**: traffic light per block, expandable details, "Check owner yourself" guided flow (deep link to nahlizenidokn + checklist).
 5. **About / disclaimer / sources** (CC BY attribution for ČÚZK, ČHMÚ etc.).
@@ -245,5 +246,5 @@ Screens:
 3. ~~MF rent map and service charges~~ — resolved 2026-11-14: excluded (§5.2). Input asks for rent without zálohy.
 4. ~~Flood data source and licence~~ — resolved 2026-11-14 (§5.4).
 5. Name/branding (check trademark + domain).
-6. Reference flat excludes lift / balcony / furnishing; MF publishes surcharges (Praha VK3: lift +48 Kč/m² ≈ 10 %). Ask the user these 2–3 toggles and add surcharges, or ignore in MVP?
+6. ~~Reference-flat surcharges~~ — resolved 2026-11-14: input has 6 toggles (lift, balcony, terrace, furnished, garage/parking, new build); surcharges added to the reference rent.
 7. MF licence: send the written request (cenovemapy@mf.gov.cz).

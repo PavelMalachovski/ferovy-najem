@@ -13,6 +13,7 @@ struct InputView: View {
     @State private var area = ""
     @State private var disposition: Disposition = .twoKK
     @State private var ico = ""
+    @State private var features = FlatFeatures()
     @State private var answers: [ScamQuestion: Bool] = [:]
     @FocusState private var addressFocused: Bool
 
@@ -22,7 +23,8 @@ struct InputView: View {
         else { return nil }
         return ReportRequest(
             address: selected, unitNumber: Int(unit), rentCZK: rentCZK, areaM2: areaM2,
-            disposition: disposition, landlordICO: ico.isEmpty ? nil : ico, answers: answers
+            disposition: disposition, landlordICO: ico.isEmpty ? nil : ico, features: features,
+            answers: answers
         )
     }
 
@@ -89,6 +91,19 @@ struct InputView: View {
             }
 
             Section {
+                Toggle("Lift", isOn: $features.lift)
+                Toggle("Balcony", isOn: $features.balcony)
+                Toggle("Terrace", isOn: $features.terrace)
+                Toggle("Furnished", isOn: $features.furnished)
+                Toggle("Garage or parking included", isOn: $features.garage)
+                Toggle("New build (up to 5 years)", isOn: $features.newBuild)
+            } header: {
+                Text("What's included")
+            } footer: {
+                Text("The MF map prices these extras separately, so we adjust the comparison.")
+            }
+
+            Section {
                 TextField("IČO (optional)", text: $ico).keyboardType(.numberPad)
             } header: {
                 Text("Landlord company")
@@ -139,6 +154,7 @@ struct InputView: View {
         area = r.areaM2.formatted()
         disposition = r.disposition
         ico = r.landlordICO ?? ""
+        features = r.features
         answers = r.answers
     }
 }

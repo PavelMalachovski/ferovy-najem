@@ -21,7 +21,8 @@ struct MockReportService: ReportService {
     struct Profile: Sendable {
         let address: AddressSuggestion
         let kuName: String
-        let median: Double
+        let reference: Double
+        let referenceNewBuild: Double
         let min: Double
         let max: Double
         let units: [Int: PropertyBlock.UnitUse]
@@ -33,19 +34,19 @@ struct MockReportService: ReportService {
     static let profiles: [Profile] = [
         Profile(
             address: .init(ruianCode: 900_001, label: "Korunní 1001/12, Praha 2 – Vinohrady"),
-            kuName: "Vinohrady", median: 345, min: 250, max: 470,
+            kuName: "Vinohrady", reference: 430, referenceNewBuild: 600, min: 130, max: 1010,
             units: [1: .flat, 2: .flat, 12: .flat, 14: .flat],
             unitProceedings: [:], buildingProceedings: [], flood: .none
         ),
         Profile(
             address: .init(ruianCode: 900_002, label: "Táboritská 1502/7, Praha 3 – Žižkov"),
-            kuName: "Žižkov", median: 320, min: 230, max: 440,
+            kuName: "Žižkov", reference: 400, referenceNewBuild: 560, min: 120, max: 1000,
             units: [3: .flat, 5: .studio, 9: .flat],
             unitProceedings: [:], buildingProceedings: [], flood: .none
         ),
         Profile(
             address: .init(ruianCode: 900_003, label: "Sokolovská 1290/41, Praha 8 – Karlín"),
-            kuName: "Karlín", median: 390, min: 280, max: 520,
+            kuName: "Karlín", reference: 460, referenceNewBuild: 640, min: 130, max: 990,
             units: [4: .flat, 8: .flat, 11: .nonResidential],
             unitProceedings: [8: [Proceeding(
                 kind: .vklad, number: "V-21873/2026-101", state: "zahájeno",
@@ -58,6 +59,22 @@ struct MockReportService: ReportService {
             flood: .near
         ),
     ]
+
+    /// Real MF surcharges, Kč/m² (Q3 2026 file, info sheet): national, per VK.
+    /// Order: balcony, terrace, furnished, garage, lift.
+    static let surcharges: [Int: [Double]] = [
+        1: [16, 36, 30, 45, 41], 2: [8, 38, 32, 49, 45], 3: [4, 34, 27, 38, 48], 4: [8, 26, 23, 33, 61],
+    ]
+    static let surchargesNewBuild: [Int: [Double]] = [
+        1: [15, 28, 26, 36, 19], 2: [11, 26, 29, 43, 16], 3: [9, 26, 23, 45, 17], 4: [7, 24, 19, 43, 19],
+    ]
+
+    static func surcharge(for f: FlatFeatures, category: Int) -> Double {
+        let t = (f.newBuild ? surchargesNewBuild : surcharges)[category] ?? []
+        guard t.count == 5 else { return 0 }
+        let on = [f.balcony, f.terrace, f.furnished, f.garage, f.lift]
+        return zip(t, on).reduce(0) { $0 + ($1.1 ? $1.0 : 0) }
+    }
 
     var config: ScoringConfig = .default
     var latency: Duration = .milliseconds(900)
@@ -77,7 +94,9 @@ struct MockReportService: ReportService {
 
         // Price
         let perM2 = Double(req.rentCZK) / max(req.areaM2, 1)
-        let ratio = perM2 / p.median
+        let surcharge = Self.surcharge(for: req.features, category: req.disposition.sizeCategory)
+        let reference = (req.features.newBuild ? p.referenceNewBuild : p.reference) + surcharge
+        let ratio = perM2 / reference
         let verdict: PriceBlock.Verdict =
             ratio < config.redBelow ? .farBelow :
             ratio < config.yellowBelow ? .below :
@@ -89,7 +108,8 @@ struct MockReportService: ReportService {
         case .typical: .green
         }
         let price = PriceBlock(
-            status: priceStatus, verdict: verdict, askingPerM2: perM2, medianPerM2: p.median,
+            status: priceStatus, verdict: verdict, askingPerM2: perM2, referencePerM2: reference,
+            surchargePerM2: surcharge,
             minPerM2: p.min, maxPerM2: p.max, ratio: ratio, kuName: p.kuName, period: "Q3 2026"
         )
 
@@ -159,10 +179,11 @@ enum DemoScenario: String, CaseIterable, Identifiable {
         let a = MockReportService.profiles
         switch self {
         case .green:
-            return ReportRequest(address: a[0].address, unitNumber: 12, rentCZK: 21_000,
-                                 areaM2: 60, disposition: .twoKK, landlordICO: "12345679")
+            return ReportRequest(address: a[0].address, unitNumber: 12, rentCZK: 28_500,
+                                 areaM2: 60, disposition: .twoKK, landlordICO: "12345679",
+                                 features: FlatFeatures(lift: true))
         case .yellow:
-            return ReportRequest(address: a[1].address, unitNumber: nil, rentCZK: 24_000,
+            return ReportRequest(address: a[1].address, unitNumber: nil, rentCZK: 30_000,
                                  areaM2: 60, disposition: .twoKK, landlordICO: nil,
                                  answers: [.unitNumberWithheld: true])
         case .red:

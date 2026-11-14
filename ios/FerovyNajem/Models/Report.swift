@@ -30,6 +30,27 @@ enum Disposition: String, CaseIterable, Identifiable, Hashable, Sendable {
     case threeKK = "3+kk", threeOne = "3+1"
     case fourKK = "4+kk", fourOne = "4+1"
     var id: String { rawValue }
+
+    /// MF rent map size category (VK 1–4).
+    var sizeCategory: Int {
+        switch self {
+        case .oneKK, .oneOne: 1
+        case .twoKK, .twoOne: 2
+        case .threeKK, .threeOne: 3
+        case .fourKK, .fourOne: 4
+        }
+    }
+}
+
+/// Features priced by the MF map as surcharges over the reference flat
+/// (which is unfurnished, without balcony/terrace/garage/lift, older than 5 years).
+struct FlatFeatures: Hashable, Sendable {
+    var lift = false
+    var balcony = false
+    var terrace = false
+    var furnished = false
+    var garage = false
+    var newBuild = false
 }
 
 /// Questionnaire items. Answer "yes" raises the flag of the same name.
@@ -56,6 +77,7 @@ struct ReportRequest: Hashable, Sendable {
     var areaM2: Double
     var disposition: Disposition
     var landlordICO: String?
+    var features = FlatFeatures()
     var answers: [ScamQuestion: Bool] = [:]
 }
 
@@ -75,7 +97,9 @@ struct PriceBlock: Hashable, Sendable {
     var status: Status
     var verdict: Verdict
     var askingPerM2: Double
-    var medianPerM2: Double
+    /// MF model rent of the reference flat + feature surcharges.
+    var referencePerM2: Double
+    var surchargePerM2: Double
     var minPerM2: Double
     var maxPerM2: Double
     var ratio: Double
