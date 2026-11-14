@@ -48,4 +48,6 @@ cd ios && xcodebuild -project FerovyNajem.xcodeproj -scheme FerovyNajem \
   -destination 'platform=iOS Simulator,name=iPhone 18 Pro' -derivedDataPath build build
 # DEBUG deep links for screenshots:
 xcrun simctl launch booted cz.ferovynajem.app -screen report -demo red -expand YES -scroll bottom
+# add -mock YES to use recorded responses instead of the local backend (Debug → http://localhost:8000)
+cd ios && xcodebuild test -project FerovyNajem.xcodeproj -scheme FerovyNajem -destination 'platform=iOS Simulator,name=iPhone 18 Pro'
 ```

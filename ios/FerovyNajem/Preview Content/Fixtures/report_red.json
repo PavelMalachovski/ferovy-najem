@@ -1,0 +1,78 @@
+{
+    "overall": "red",
+    "price": {
+        "status": "red",
+        "available": true,
+        "verdict": "far_below",
+        "asking_per_m2": 233.3,
+        "expected_per_m2": 422,
+        "typical_low_per_m2": 359,
+        "typical_high_per_m2": 485,
+        "reference_per_m2": 422,
+        "surcharge_per_m2": 0,
+        "band_low": 412,
+        "band_high": 433,
+        "raw_min": 110,
+        "raw_median": 422,
+        "raw_max": 934,
+        "coverage": 5,
+        "limited_data": false,
+        "ratio": 0.553,
+        "unit_name": "Karlín",
+        "unit_kind": "ku",
+        "size_category": 2,
+        "period_end": "2026-09-30"
+    },
+    "property": {
+        "status": "green",
+        "available": true,
+        "unavailable_reason": null,
+        "check_level": "building",
+        "building_found": true,
+        "unit_found": null,
+        "unit_use_code": null,
+        "unit_use_name": null,
+        "ku_name": "Karlín",
+        "proceedings": [],
+        "signals": [],
+        "hints": [
+            "whole_house"
+        ],
+        "kn_deeplink": "https://nahlizenidokn.cuzk.gov.cz/ZobrazObjekt.aspx?typ=Budova&id=16575179010",
+        "data_as_of": "2026-11-14T18:20:00"
+    },
+    "landlord": {
+        "status": "red",
+        "ico": "01493248",
+        "found": true,
+        "name": "Stavby Kohout s.r.o.",
+        "natural_person": false,
+        "active": true,
+        "insolvency": "active",
+        "insolvency_stage": "KONKURS",
+        "signals": [
+            "insolvency_in_progress"
+        ]
+    },
+    "address": {
+        "status": "yellow",
+        "flood_zone": "q100",
+        "distance_m": 0,
+        "data_version": "Thu, 30 Oct 2025"
+    },
+    "scam_flags": {
+        "status": "red",
+        "flags": [
+            "deposit_before_viewing",
+            "owner_abroad",
+            "price_far_below_reference"
+        ]
+    },
+    "disclaimer": "Orientační informace, není právní posouzení.",
+    "sources": [
+        "ČÚZK – API KN, RÚIAN (CC BY 4.0)",
+        "MF ČR – Cenová mapa nájemního bydlení",
+        "ARES, ISIR",
+        "Záplavová území, VÚV TGM, v.v.i. / MŽP (CC BY 4.0)"
+    ]
+}

@@ -8,6 +8,7 @@ struct InputView: View {
     @State private var query = ""
     @State private var selected: AddressSuggestion?
     @State private var suggestions: [AddressSuggestion] = []
+    @State private var suggestFailed = false
     @State private var unit = ""
     @State private var rent = ""
     @State private var area = ""
@@ -15,7 +16,7 @@ struct InputView: View {
     @State private var disposition: Disposition?
     @State private var ico = ""
     @State private var showICO = false
-    @State private var features = FlatFeatures()
+    @State private var features = Features()
     @State private var answers: [ScamQuestion: Bool] = [:]
     @FocusState private var addressFocused: Bool
 
@@ -24,11 +25,15 @@ struct InputView: View {
         Double(area.replacingOccurrences(of: ",", with: ".")).flatMap { $0 > 0 ? $0 : nil }
     }
 
+    private var icoValid: Bool { ico.isEmpty || InputParsing.isValidICO(ico) }
+    private var unitValid: Bool { unit.isEmpty || InputParsing.unitNumber(unit) != nil }
+
     private var request: ReportRequest? {
-        guard let selected, let rentCZK, let areaM2, let disposition else { return nil }
+        guard let selected, let rentCZK, let areaM2, let disposition, icoValid, unitValid else { return nil }
         return ReportRequest(
-            address: selected, unitNumber: Int(unit), rentCZK: rentCZK, areaM2: areaM2,
-            disposition: disposition, landlordICO: ico.isEmpty ? nil : ico, features: features,
+            ruianCode: selected.ruianCode, addressLabel: selected.label,
+            unitNumber: InputParsing.unitNumber(unit), rentCzk: rentCZK, areaM2: areaM2,
+            disposition: disposition, landlordIco: ico.isEmpty ? nil : ico, features: features,
             answers: answers
         )
     }
@@ -39,6 +44,8 @@ struct InputView: View {
         if rentCZK == nil { return "Enter the rent" }
         if areaM2 == nil { return "Enter the floor area" }
         if disposition == nil { return "Choose the layout" }
+        if !unitValid { return "Check the unit number" }
+        if !icoValid { return "Check the IČO" }
         return nil
     }
 
@@ -112,9 +119,19 @@ struct InputView: View {
             .background(.bar)
         }
         .task(id: query) {
-            guard selected == nil else { return }
-            try? await Task.sleep(for: .milliseconds(200))
-            suggestions = await service.suggest(query)
+            guard selected == nil, query.count >= 3 else {
+                suggestions = []
+                return
+            }
+            try? await Task.sleep(for: .milliseconds(250))  // debounce; cancelled on next keystroke
+            guard !Task.isCancelled else { return }
+            do {
+                suggestions = try await service.suggest(query)
+                suggestFailed = false
+            } catch is CancellationError {
+            } catch {
+                suggestFailed = true
+            }
         }
     }
 
@@ -137,6 +154,7 @@ struct InputView: View {
             } else {
                 TextField("Street and house number", text: $query)
                     .textContentType(.fullStreetAddress)
+                    .autocorrectionDisabled()
                     .focused($addressFocused)
                     .padding(10)
                     .background(Color(.tertiarySystemFill), in: .rect(cornerRadius: 8))
@@ -150,16 +168,22 @@ struct InputView: View {
                             .frame(maxWidth: .infinity, minHeight: 36, alignment: .leading)
                     }
                 }
+                if suggestFailed {
+                    Label("Can't reach the server. Check your connection.", systemImage: "wifi.exclamationmark")
+                        .font(.footnote)
+                        .foregroundStyle(.orange)
+                }
             }
             Divider()
             HStack(spacing: 12) {
                 VStack(alignment: .leading, spacing: 2) {
                     Text("Unit number").font(.subheadline)
-                    Text("Optional · e.g. 12 from 1001/12").font(.caption).foregroundStyle(.secondary)
+                    Text("Optional · e.g. 12 or 1001/12").font(.caption)
+                        .foregroundStyle(unitValid ? Color.secondary : Color.red)
                 }
                 Spacer()
                 TextField(text: $unit) { Text(verbatim: "–") }
-                    .keyboardType(.numberPad)
+                    .keyboardType(.numbersAndPunctuation)
                     .multilineTextAlignment(.center)
                     .frame(width: 72, height: 40)
                     .background(Color(.tertiarySystemFill), in: .rect(cornerRadius: 8))
@@ -229,7 +253,7 @@ struct InputView: View {
         .card()
     }
 
-    private func featureChip(_ title: LocalizedStringKey, _ key: WritableKeyPath<FlatFeatures, Bool>) -> some View {
+    private func featureChip(_ title: LocalizedStringKey, _ key: WritableKeyPath<Features, Bool>) -> some View {
         Chip(title: Text(title), selected: features[keyPath: key]) {
             features[keyPath: key].toggle()
         }
@@ -261,19 +285,24 @@ struct InputView: View {
                     .keyboardType(.numberPad)
                     .padding(10)
                     .background(Color(.tertiarySystemFill), in: .rect(cornerRadius: 8))
+                if !icoValid {
+                    Text("This IČO is not valid (8 digits with a check digit).")
+                        .font(.caption)
+                        .foregroundStyle(.red)
+                }
             }
         }
         .card()
     }
 
     private func fill(_ r: ReportRequest) {
-        selected = r.address
-        query = r.address.label
+        selected = AddressSuggestion(ruianCode: r.ruianCode, label: r.addressLabel, lat: 0, lon: 0)
+        query = r.addressLabel
         unit = r.unitNumber.map(String.init) ?? ""
-        rent = String(r.rentCZK)
+        rent = String(r.rentCzk)
         area = r.areaM2.formatted()
         disposition = r.disposition
-        ico = r.landlordICO ?? ""
+        ico = r.landlordIco ?? ""
         showICO = !ico.isEmpty
         features = r.features
         answers = r.answers

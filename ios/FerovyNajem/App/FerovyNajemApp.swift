@@ -4,8 +4,16 @@ import SwiftUI
 struct FerovyNajemApp: App {
     var body: some Scene {
         WindowGroup {
-            RootView(service: MockReportService())
+            RootView(service: Self.makeService())
         }
+    }
+
+    /// Real backend by default; `-mock YES` (DEBUG) uses recorded responses, e.g. for screenshots.
+    private static func makeService() -> any ReportService {
+        #if DEBUG
+        if UserDefaults.standard.bool(forKey: "mock") { return MockReportService() }
+        #endif
+        return APIReportService.fromBundle()
     }
 }
 

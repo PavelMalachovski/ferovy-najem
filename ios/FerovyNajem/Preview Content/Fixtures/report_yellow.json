@@ -1,0 +1,64 @@
+{
+    "overall": "yellow",
+    "price": {
+        "status": "yellow",
+        "available": true,
+        "verdict": "above",
+        "asking_per_m2": 427.3,
+        "expected_per_m2": 367,
+        "typical_low_per_m2": 312,
+        "typical_high_per_m2": 422,
+        "reference_per_m2": 367,
+        "surcharge_per_m2": 0,
+        "band_low": 361,
+        "band_high": 374,
+        "raw_min": 127,
+        "raw_median": 346,
+        "raw_max": 994,
+        "coverage": 5,
+        "limited_data": false,
+        "ratio": 1.164,
+        "unit_name": "Nusle",
+        "unit_kind": "ku",
+        "size_category": 2,
+        "period_end": "2026-09-30"
+    },
+    "property": {
+        "status": "green",
+        "available": true,
+        "unavailable_reason": null,
+        "check_level": "building",
+        "building_found": true,
+        "unit_found": null,
+        "unit_use_code": null,
+        "unit_use_name": null,
+        "ku_name": "Nusle",
+        "proceedings": [],
+        "signals": [],
+        "hints": [
+            "ask_unit_number"
+        ],
+        "kn_deeplink": "https://nahlizenidokn.cuzk.gov.cz/ZobrazObjekt.aspx?typ=Budova&id=892763101",
+        "data_as_of": "2026-11-14T18:20:00"
+    },
+    "landlord": null,
+    "address": {
+        "status": "green",
+        "flood_zone": "none",
+        "distance_m": null,
+        "data_version": "Thu, 30 Oct 2025"
+    },
+    "scam_flags": {
+        "status": "yellow",
+        "flags": [
+            "unit_number_withheld"
+        ]
+    },
+    "disclaimer": "Orientační informace, není právní posouzení.",
+    "sources": [
+        "ČÚZK – API KN, RÚIAN (CC BY 4.0)",
+        "MF ČR – Cenová mapa nájemního bydlení",
+        "ARES, ISIR",
+        "Záplavová území, VÚV TGM, v.v.i. / MŽP (CC BY 4.0)"
+    ]
+}

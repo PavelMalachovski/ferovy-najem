@@ -61,6 +61,16 @@
         }
       }
     },
+    "%lld m from a flood zone (Q100)": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld m od záplavového území (Q100)"
+          }
+        }
+      }
+    },
     "%lld of 4 required details filled": {
       "localizations": {
         "cs": {
@@ -225,12 +235,12 @@
         }
       }
     },
-    "0": {
+    "**Don't sign** with a company in insolvency without legal advice.": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "0"
+            "value": "**Nepodepisujte** smlouvu s firmou v insolvenci bez právní rady."
           }
         }
       }
@@ -261,6 +271,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pár věcí k ověření"
+          }
+        }
+      }
+    },
+    "A proceeding is in progress in the cadastre": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "V katastru probíhá řízení"
           }
         }
       }
@@ -325,6 +345,16 @@
         }
       }
     },
+    "Asking prices in the area": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nabídkové ceny v lokalitě"
+          }
+        }
+      }
+    },
     "Balcony": {
       "localizations": {
         "cs": {
@@ -375,12 +405,42 @@
         }
       }
     },
+    "Cadastre data as of": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Data katastru k"
+          }
+        }
+      }
+    },
     "Cadastre of Real Estate, CC BY 4.0": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
             "value": "Katastr nemovitostí, CC BY 4.0"
+          }
+        }
+      }
+    },
+    "Can't reach the server": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nelze se spojit se serverem"
+          }
+        }
+      }
+    },
+    "Can't reach the server. Check your connection.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nelze se spojit se serverem. Zkontrolujte připojení."
           }
         }
       }
@@ -415,6 +475,16 @@
         }
       }
     },
+    "Check the IČO": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zkontrolujte IČO"
+          }
+        }
+      }
+    },
     "Check the owner in the cadastre": {
       "localizations": {
         "cs": {
@@ -431,6 +501,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ověřte si vlastníka sami"
+          }
+        }
+      }
+    },
+    "Check the unit number": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zkontrolujte číslo jednotky"
+          }
+        }
+      }
+    },
+    "Check your internet connection and try again.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zkontrolujte připojení k internetu a zkuste to znovu."
           }
         }
       }
@@ -495,6 +585,16 @@
         }
       }
     },
+    "Confirmation of a geometric plan": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Potvrzení geometrického plánu"
+          }
+        }
+      }
+    },
     "Continue": {
       "localizations": {
         "cs": {
@@ -505,32 +605,22 @@
         }
       }
     },
-    "Data as of %@. Sources: ČÚZK (CC BY 4.0), MF ČR, ARES, ISIR.": {
-      "localizations": {
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Data k %@. Zdroje: ČÚZK (CC BY 4.0), MF ČR, ARES, ISIR."
-          }
-        }
-      }
-    },
-    "Data period": {
-      "localizations": {
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Období dat"
-          }
-        }
-      }
-    },
     "Data sources": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
             "value": "Zdroje dat"
+          }
+        }
+      }
+    },
+    "Data up to": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Data do"
           }
         }
       }
@@ -685,22 +775,22 @@
         }
       }
     },
-    "Flat": {
+    "Finished": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Byt"
+            "value": "Ukončeno"
           }
         }
       }
     },
-    "Flat (byt)": {
+    "Flood data isn't available": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Byt"
+            "value": "Data o záplavách nejsou k dispozici"
           }
         }
       }
@@ -765,22 +855,22 @@
         }
       }
     },
-    "Inactive": {
+    "In progress": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Neaktivní"
+            "value": "Probíhá"
           }
         }
       }
     },
-    "Indicative information, not a legal assessment.": {
+    "In progress: %@": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Orientační informace, není právní posouzení."
+            "value": "Probíhá: %@"
           }
         }
       }
@@ -791,6 +881,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "V záplavovém území (Q100)"
+          }
+        }
+      }
+    },
+    "Inside the active flood zone": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "V aktivní zóně záplavového území"
+          }
+        }
+      }
+    },
+    "Insolvency proceeding in progress (%@)": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Probíhá insolvenční řízení (%@)"
           }
         }
       }
@@ -835,22 +945,22 @@
         }
       }
     },
+    "IČO %@ was not found in ARES": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "IČO %@ nebylo v ARES nalezeno"
+          }
+        }
+      }
+    },
     "Kč per month": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
             "value": "Kč měsíčně"
-          }
-        }
-      }
-    },
-    "LV": {
-      "localizations": {
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "LV"
           }
         }
       }
@@ -895,12 +1005,12 @@
         }
       }
     },
-    "MF %@": {
+    "Limited data in this area – the comparison is less reliable.": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "MF %@"
+            "value": "V této lokalitě je málo dat – srovnání je méně spolehlivé."
           }
         }
       }
@@ -925,12 +1035,12 @@
         }
       }
     },
-    "Near a flood zone (Q100)": {
+    "Municipality": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Blízko záplavového území (Q100)"
+            "value": "Obec"
           }
         }
       }
@@ -965,12 +1075,22 @@
         }
       }
     },
-    "No record": {
+    "No building found in the cadastre for this address": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bez záznamu"
+            "value": "K této adrese jsme v katastru nenašli budovu"
+          }
+        }
+      }
+    },
+    "No ongoing proceeding": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Žádné probíhající řízení"
           }
         }
       }
@@ -995,22 +1115,22 @@
         }
       }
     },
-    "Non-residential space": {
-      "localizations": {
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nebytový prostor"
-          }
-        }
-      }
-    },
     "None": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
             "value": "Žádná"
+          }
+        }
+      }
+    },
+    "Not active": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neaktivní"
           }
         }
       }
@@ -1025,22 +1145,22 @@
         }
       }
     },
+    "Not checked for sole traders": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "U OSVČ se neověřuje"
+          }
+        }
+      }
+    },
     "Not enough data": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
             "value": "Nedostatek dat"
-          }
-        }
-      }
-    },
-    "Not found": {
-      "localizations": {
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nenalezena"
           }
         }
       }
@@ -1085,12 +1205,12 @@
         }
       }
     },
-    "Optional · e.g. 12 from 1001/12": {
+    "Optional · e.g. 12 or 1001/12": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nepovinné · např. 12 z 1001/12"
+            "value": "Nepovinné · např. 12 nebo 1001/12"
           }
         }
       }
@@ -1101,6 +1221,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Jiné řízení"
+          }
+        }
+      }
+    },
+    "Other warning sign": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jiný varovný signál"
           }
         }
       }
@@ -1155,6 +1285,16 @@
         }
       }
     },
+    "Price comparison isn't available for this address.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Srovnání ceny pro tuto adresu není k dispozici."
+          }
+        }
+      }
+    },
     "Price far below the MF reference rent": {
       "localizations": {
         "cs": {
@@ -1171,6 +1311,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Soukromí"
+          }
+        }
+      }
+    },
+    "Proceedings": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Řízení"
           }
         }
       }
@@ -1221,6 +1371,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Nedávné kontroly zůstávají jen v tomto telefonu."
+          }
+        }
+      }
+    },
+    "Registered sole trader (OSVČ), active": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zapsán jako OSVČ, aktivní"
           }
         }
       }
@@ -1345,6 +1505,16 @@
         }
       }
     },
+    "Something went wrong": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Něco se nepovedlo"
+          }
+        }
+      }
+    },
     "Status in ARES": {
       "localizations": {
         "cs": {
@@ -1395,16 +1565,6 @@
         }
       }
     },
-    "Studio (ateliér)": {
-      "localizations": {
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ateliér"
-          }
-        }
-      }
-    },
     "Terrace": {
       "localizations": {
         "cs": {
@@ -1435,12 +1595,72 @@
         }
       }
     },
+    "The cadastre is temporarily unavailable. Try again later.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Katastr je dočasně nedostupný. Zkuste to později."
+          }
+        }
+      }
+    },
+    "The check couldn't be completed. Please try again in a moment.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kontrolu se nepodařilo dokončit. Zkuste to prosím za chvíli."
+          }
+        }
+      }
+    },
+    "The company is not active": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Firma není aktivní"
+          }
+        }
+      }
+    },
+    "The registers are temporarily unavailable": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rejstříky jsou dočasně nedostupné"
+          }
+        }
+      }
+    },
     "These patterns are common in rental scams. They don't prove anything about a specific person.": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
             "value": "Tyto vzorce jsou u podvodů s nájmy časté. O konkrétním člověku nic nedokazují."
+          }
+        }
+      }
+    },
+    "This IČO is not valid": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toto IČO není platné"
+          }
+        }
+      }
+    },
+    "This IČO is not valid (8 digits with a check digit).": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toto IČO není platné (8 číslic s kontrolní číslicí)."
           }
         }
       }
@@ -1455,12 +1675,42 @@
         }
       }
     },
+    "Too many checks": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Příliš mnoho kontrol"
+          }
+        }
+      }
+    },
+    "Try again": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zkusit znovu"
+          }
+        }
+      }
+    },
     "Typical warning signs from how the deal is going.": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
             "value": "Typické varovné signály podle průběhu domluvy."
+          }
+        }
+      }
+    },
+    "Unavailable": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nedostupné"
           }
         }
       }
@@ -1485,32 +1735,32 @@
         }
       }
     },
-    "Unit %@ is a flat; the building has a pending proceeding": {
+    "Unit %@ is registered as %@, not as a flat": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Jednotka %@ je byt; na domě probíhá řízení"
+            "value": "Jednotka %1$@ je zapsána jako %2$@, ne jako byt"
           }
         }
       }
     },
-    "Unit %@ is registered as a studio (ateliér), not a flat": {
+    "Unit %@ is registered as a group of units, not a single flat": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Jednotka %@ je zapsána jako ateliér, ne jako byt"
+            "value": "Jednotka %@ je zapsána jako skupina jednotek, ne jako jeden byt"
           }
         }
       }
     },
-    "Unit %@ is registered as non-residential space": {
+    "Unit %@ is registered as unfinished": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Jednotka %@ je zapsána jako nebytový prostor"
+            "value": "Jednotka %@ je zapsána jako rozestavěná"
           }
         }
       }
@@ -1685,6 +1935,16 @@
         }
       }
     },
+    "You've made a lot of checks in a short time. Please try again in an hour.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Za krátkou dobu jste provedli hodně kontrol. Zkuste to prosím za hodinu."
+          }
+        }
+      }
+    },
     "Your answers stay on this phone and only affect this report.": {
       "localizations": {
         "cs": {
@@ -1711,6 +1971,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Váš nájem %@, referenční nájemné MF %@"
+          }
+        }
+      }
+    },
+    "Zones are indicative; the binding extent is set by the water authority.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zóny jsou orientační; závazný rozsah stanoví vodoprávní úřad."
           }
         }
       }

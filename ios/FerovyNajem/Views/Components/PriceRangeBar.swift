@@ -5,11 +5,16 @@ import SwiftUI
 /// marks are ("You", "MF") instead of printing the axis bounds, which carry no meaning.
 /// Raw asking min/max are not used: they are often pooled from neighbouring areas and very wide.
 struct PriceRangeBar: View {
-    let price: PriceBlock
-    var config: ScoringConfig = .default
+    let asking: Double
+    /// MF reference rent + feature surcharges.
+    let expected: Double
+    /// Backend's "typical" range (scoring thresholds live in backend config).
+    let typicalLow: Double
+    let typicalHigh: Double
+    let status: Status
 
-    private var lower: Double { min(price.referencePerM2 * 0.5, price.askingPerM2 * 0.95) }
-    private var upper: Double { max(price.referencePerM2 * 1.5, price.askingPerM2 * 1.05) }
+    private var lower: Double { min(expected * 0.5, asking * 0.95) }
+    private var upper: Double { max(expected * 1.5, asking * 1.05) }
 
     private func x(_ value: Double, _ width: CGFloat) -> CGFloat {
         CGFloat((value - lower) / (upper - lower)) * width
@@ -26,29 +31,25 @@ struct PriceRangeBar: View {
             ZStack(alignment: .topLeading) {
                 Text("You")
                     .font(.caption.weight(.semibold))
-                    .foregroundStyle(price.status.color)
+                    .foregroundStyle(status.color)
                     .fixedSize()
-                    .position(x: labelX(price.askingPerM2, w), y: 8)
+                    .position(x: labelX(asking, w), y: 8)
 
                 ZStack(alignment: .leading) {
                     Capsule().fill(Color(.tertiarySystemFill)).frame(height: 10)
                     Capsule()
                         .fill(Color.green.opacity(0.35))
-                        .frame(
-                            width: x(price.referencePerM2 * config.yellowAbove, w)
-                                - x(price.referencePerM2 * config.yellowBelow, w),
-                            height: 10
-                        )
-                        .offset(x: x(price.referencePerM2 * config.yellowBelow, w))
+                        .frame(width: x(typicalHigh, w) - x(typicalLow, w), height: 10)
+                        .offset(x: x(typicalLow, w))
                     Rectangle()
                         .fill(Color.primary.opacity(0.6))
                         .frame(width: 2, height: 18)
-                        .offset(x: x(price.referencePerM2, w) - 1)
+                        .offset(x: x(expected, w) - 1)
                     Circle()
-                        .fill(price.status.color)
+                        .fill(status.color)
                         .overlay(Circle().stroke(Color(.secondarySystemGroupedBackground), lineWidth: 3))
                         .frame(width: 20, height: 20)
-                        .offset(x: x(price.askingPerM2, w) - 10)
+                        .offset(x: x(asking, w) - 10)
                 }
                 .frame(width: w, height: 24)
                 .offset(y: 18)
@@ -57,12 +58,12 @@ struct PriceRangeBar: View {
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(.secondary)
                     .fixedSize()
-                    .position(x: labelX(price.referencePerM2, w), y: 52)
+                    .position(x: labelX(expected, w), y: 52)
             }
         }
         .frame(height: 62)
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel(Text("Your rent \(price.askingPerM2.czkPerM2), MF reference rent \(price.referencePerM2.czkPerM2)"))
+        .accessibilityLabel(Text("Your rent \(asking.czkPerM2), MF reference rent \(expected.czkPerM2)"))
     }
 }
 
@@ -71,4 +72,8 @@ extension Double {
     var czkPerM2: String { czk + "/m²" }
     /// Rounded to hundreds, without currency: for ranges like "21 500–29 100 Kč".
     var hundreds: String { ((self / 100).rounded() * 100).formatted(.number.precision(.fractionLength(0))) }
+}
+
+extension Int {
+    var czkPerM2: String { Double(self).czkPerM2 }
 }
