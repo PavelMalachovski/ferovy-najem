@@ -20,10 +20,10 @@ User enters address + rent + size + disposition and gets a **traffic-light repor
 
 | Block | Source | Output |
 |---|---|---|
-| Price | MF Cenová mapa nájemního bydlení | Asking rent vs. median/min/max for k.ú. + flat category, both directions (overpriced / suspiciously cheap) |
+| Price | MF Cenová mapa nájemního bydlení | Asking rent vs. MF reference rent (model) for the territorial unit + size category, both directions (overpriced / suspiciously cheap); raw asking min/median/max as context |
 | Property | ČÚZK API KN | Building found by address; unit with that number exists; unit use = byt vs. ateliér / nebytový prostor; plomba on unit or building + řízení type/status (V = vklad → ownership/lien change in progress = strong signal). **Liens, executions and easements are NOT available** (they live on LV parts C/D, API returns only the LV number) |
 | Landlord (company) | ARES + ISIR | Exists, active, statutory info, insolvency yes/no |
-| Address risk | Flood zones (Q100 etc.) | In / near zone |
+| Address risk | Flood zones (VÚV TGM, declared Q100 + aktivní zóna) | In / near zone (indicative) |
 | Scam patterns | Questionnaire (on-device) | Red flags: deposit before viewing, video-only viewing, foreign account, "owner abroad", pressure to pay now, price far below map |
 | Owner check | User's own eID | Deep link to nahlizenidokn.cuzk.gov.cz + step-by-step "compare the name with the person you're talking to" |
 
@@ -45,7 +45,7 @@ iOS (SwiftUI)  ──HTTPS──▶  Backend (FastAPI)  ──▶  Postgres + Po
                                 │
                                 ├─▶ ČÚZK API KN (ApiKey, server-side only)
                                 ├─▶ ARES REST
-                                ├─▶ ISIR web service
+                                ├─▶ ISIR_CUZK_WS (SOAP, port 8443)
                                 └─ ingested: MF rent map (XLSX), RÚIAN addresses, flood zones
 ```
 
@@ -95,12 +95,12 @@ Goal: stop the public backend from being used as a free proxy to API KN (quota b
 
 | Source | Access | Refresh | Licence / notes |
 |---|---|---|---|
-| MF Cenová mapa nájemního bydlení | XLSX download on mf.gov.cz (history since 2020); community JSON mirror exists on GitHub (miloshamsa/cenova-mapa-najemneho) | Quarterly | No explicit licence found on MF page → ask MF in writing before launch. Map is based on **asking** prices; MF says it is not authoritative. **[VERIFY: file structure, categories, whether rent excludes service charges]** |
+| MF Cenová mapa nájemního bydlení | XLSX on mf.gov.cz, see §5.2 | Quarterly | No licence statement anywhere (pages, XLSX, decree 456/2024 Sb.) → ask MF in writing (cenovemapy@mf.gov.cz) before launch. Based on **asking** prices; MF: "výsledky mají pouze informativní charakter". Verified 2026-11-14, see §5.2 |
 | RÚIAN address points (for autocomplete: label, coords, kód adresního místa) | ČÚZK open data (CSV) | Monthly | CC BY 4.0. k.ú. is resolved via API KN (see below), not from RÚIAN |
 | ČÚZK API KN | api-kn.cuzk.gov.cz, REST/JSON, GET only, `ApiKey` header; register via Identita občana. OpenAPI: `/swagger/v1.0/swagger.json` | Live | Free. **Returns no personal data** (vyhl. 358/2013 § 14a). Every call counts against a per-period quota, incl. 404/empty results → cache per address. Verified 2026-11-14, see §5.1 |
 | ARES | REST API v3 (ares.gov.cz) | Live | Public register |
-| ISIR (insolvenční rejstřík) | Public web service (isir.justice.cz) | Live | **[VERIFY: endpoint, query by IČO]** |
-| Flood zones | Záplavová území / povodňové mapy (DIBAVOD / VÚV TGM, ČHMÚ) | Rare | **[VERIFY: source, format, licence]** |
+| ISIR (insolvenční rejstřík) | SOAP `ISIR_CUZK_WS`, anonymous, see §5.3 | Live (synced hourly) | Limits: ban risk above 3000 req/day or 50 req/min. Response may contain personal data → field whitelist. Verified 2026-11-14 |
+| Flood zones | VÚV TGM "Záplavová území" (ISVS-VODA, heis.vuv.cz/isvs/zapluz), see §5.4 | ~2×/year in practice | CC BY 4.0; attribution "Záplavová území, VÚV TGM, v.v.i. / MŽP". Polygons are indicative only. Verified 2026-11-14 |
 | Radon, noise | — | — | Out of MVP unless data is trivially available |
 
 ### 5.1 API KN — verified endpoints and lookup flow
@@ -142,6 +142,37 @@ Signals:
 - Unit number not given → property block reports `check_level: building`, no colour penalty by itself (missing input ≠ risk).
 - Each report costs ~3–6 API calls → cache per §4.2 and watch quota via `StavUctu`.
 
+### 5.2 MF rent map — verified file structure (2026-11-14)
+
+Checked against `2026-11-15_Cenova-mapa.xlsx` (Q3 2026, published 2026-11-11) and older files.
+
+- **Download**: `https://mf.gov.cz/assets/attachments/YYYY-MM-15_Cenova-mapa[_v02].xlsx`, MM ∈ {02,05,08,11}; suffix varies → no stable "latest" URL. Ingest discovers the first `*_Cenova-mapa*.xlsx` link on the infografika page (one official page fetch per run, not portal scraping) or takes the URL as a CLI argument. 32 historical files back to 2019, recomputed in July 2026 with the current method.
+- **Sheets**: `Základní informace` (definitions, reference sizes, surcharges), `Cenové mapy nájemného` (7 630 rows, 43 columns; headers repeat per block → parse by position).
+- **Territorial unit is mixed**: obec for most of CZ (6 048 rows), **k.ú. for Praha and ORP towns** (1 582 rows, 206 towns; Praha = 112 k.ú.). Column `Kód obce` holds the **obec code** in obec rows but the **k.ú. code** in k.ú. rows (k.ú. column filled). Lookup: try k.ú. code from API KN, then obec code.
+- **Size category (VK)** by disposition: 1 = 1+kk, 1+1; 2 = 2+kk, 2+1; 3 = 3+kk, 3+1; 4 = 4 rooms and more. (File says "2+2", "3+3" — MF typos.)
+- **Per VK, all integers in Kč/m²/month**: model rent of the reference flat (hedonic model), its 95 % lower/upper interval, model rent for a new-build (≤ 5 y), raw asking min / max / median, data coverage 1–5 (0–30 / 31–60 / 61–90 / 90–150 / 150+ observations). No missing values.
+- **Service charges: EXCLUDED** (info sheet): "Nájemné v sobě neobsahuje vyúčtovatelné složky, které jsou standardně hrazeny spolu s nájemným jako např. energie, voda, odpad atd." Stated for model values; unclear for raw min/max/median. → Input asks for rent **without** zálohy.
+- **Reference flat** is unfurnished, no balcony/terrace/garage/lift; surcharges in Kč/m² per kraj and VK on the info sheet (e.g. Praha VK3: lift +48, furnished +27). Reference sizes per kraj and VK (Praha: 35/53/71/88 m²).
+- **Data quality**: min 150 observations per unit (Praha/Brno/Ostrava 70), missing data filled from neighbours up to 30 km (1 km in the three cities). Coverage = 1 in ~90 % of rows → use coverage as a confidence flag; raw min/max are often pooled from neighbours.
+- **Time window**: file text says 5 years (1.10.2021–30.9.2026), methodology says 4 years. Inconsistent; don't rely on it.
+
+### 5.3 ISIR — verified interface (2026-11-14)
+
+- `ISIR_CUZK_WS`, SOAP only, anonymous: `https://isir.justice.cz:8443/isir_cuzk_ws/IsirWsCuzkService?wsdl`. Docs: isir.justice.cz/isir/help/Popis_WS_2_v1_13.pdf. Backend needs egress on port **8443**.
+- Operation `getIsirWsCuzkData`; request `ic`, `filtrAktualniRizeni=T` (only ongoing proceedings), `maxRelevanceVysledku=2` (no fuzzy name matching), small `maxPocetVysledku`.
+- Result: any returned record = ongoing insolvency; `druhStavKonkursu` gives the stage (MORATORIUM, ÚPADEK, KONKURS, REORGANIZ, ODDLUŽENÍ, …). `kodChyby`: WS2 = not found (clean); WS4 / SQL1 / SERVER1 / SOAP fault = **unknown**, never "clean".
+- **Personal data**: response can contain `rc`, `datumNarozeni`, `jmeno`, titles, full address and co-debtors (`dalsiDluznikVRizeni=T`). Keep only `ic`, `druhStavKonkursu`, `bcVec`, `rocnik`, `cisloSenatu`, `nazevOrganizace`, `datumPm*`, `urlDetailRizeni`; drop co-debtor records. **Query ISIR only for legal persons** (`pravniForma` from ARES) — an OSVČ also has an IČO.
+- Limits: >3000 req/day or >50 req/min may get the client banned → cache per IČO (1 h, matches ISIR sync).
+- ARES alternative: `seznamRegistraci.stavZdrojeIr` (AKTIVNI / HISTORICKY / NEEXISTUJICI …) — semantics undocumented, no stage. Optional pre-filter only.
+
+### 5.4 Flood zones — verified source (2026-11-14)
+
+- VÚV TGM "Záplavová území" (metadata `CZ-VUV-MD-ZaplavUzemi`), aggregated from zones declared by water authorities (§66 vodní zákon). Coverage is incomplete by nature; polygons are "pouze orientační" → report wording: indicative, binding extent from the vodoprávní úřad.
+- Shapefiles, S-JTSK **EPSG:5514**: Q100 (`E_ISVS$ZAPL_UZ100.zip`, 229 MB) and aktivní zóna (`E_ISVS$ZAPL_UZAZ.zip`, 128 MB) under `heis.vuv.cz/data/webmap/datovesady/isvs/ZaplavUzemi/`. WFS exists (`ags2.vuv.cz/.../isvs_voda/MapServer/WFSServer`) but geometry may be simplified → ingest shapefiles.
+- No attribute for return period: the layer defines it → store with `zone_type`. One multipolygon per river (Vltava Q100 ≈ 183 km²) → `ST_Subdivide` before indexing.
+- Current version: reference date 2025-08-31; store and show it in the report.
+- Prague option (v1.1): IPR Praha open data (CC BY, "data base © IPR Praha") adds category "protected by city flood defences", useful for fair wording.
+
 ## 6. Backend API (draft)
 
 ```
@@ -149,10 +180,10 @@ GET  /v1/address/suggest?q=...           → [{ruian_code, label, lat, lon}]
 POST /v1/report
      { ruian_code, unit_number?, rent_czk, area_m2, disposition, landlord_ico?, answers{...} }
      → { overall: green|yellow|red,
-         price:     { status, asking_per_m2, median_per_m2, min, max, ratio, ku_name, period },
+         price:     { status, asking_per_m2, reference_per_m2, band_low, band_high, raw_min, raw_median, raw_max, coverage, ratio, unit_name, unit_kind: ku|obec, size_category, period },
          property:  { status, check_level: unit|building, building_found, unit_found, unit_use, proceedings[{type, status, received, scope: unit|building}], hints[], kn_deeplink, data_as_of },
          landlord:  { status, name, active, insolvency } | null,
-         address:   { status, flood_zone },
+         address:   { status, flood_zone: none|near|q100|active, data_as_of },
          scam_flags:{ status, flags[] },
          disclaimer }
 GET  /v1/health
@@ -164,16 +195,16 @@ Anti-fraud signal **`unit_number_withheld`**: raised from the questionnaire answ
 
 ### Scoring (initial, tunable — keep thresholds in config)
 
-Price ratio = asking rent per m² / MF median for k.ú. + category:
+Price ratio = asking rent per m² (without service charges) / MF **reference rent (model)** for the territorial unit + size category. Raw asking median/min/max are shown as context only (often pooled from neighbours). Low coverage (1–2) → show "limited data" and cap the price block at yellow.
 - `< 0.70` → **red** ("suspiciously cheap — common scam pattern")
 - `0.70–0.85` → yellow
 - `0.85–1.15` → green
 - `1.15–1.30` → yellow
-- `> 1.30` → red ("well above map median")
+- `> 1.30` → red ("well above the MF reference rent")
 
 Overall = worst of blocks, except price-overpriced alone caps at yellow (it's information, not danger). Any scam flag or a "suspiciously cheap" price → red, except `unit_number_withheld` alone → yellow (flag severities in config).
 
-Wording: never "unfair"/"scam" as a verdict about a person. Use "X % above MF median", "matches a common scam pattern".
+Wording: never "unfair"/"scam" as a verdict about a person. Use "X % above the MF reference rent", "matches a common scam pattern".
 
 ## 7. iOS app (SwiftUI)
 
@@ -210,7 +241,9 @@ Screens:
 ## 10. Open questions
 
 1. Apple Developer account: personal or s.r.o. (D-U-N-S takes 1–2 weeks)?
-2. ~~API KN lookup by address / unit-level plomba~~ — resolved 2026-11-14 (§5.1). Remaining: typRizeni / stav / zpusobVyuziti codebook values; quota size per period.
-3. Does MF rent map include or exclude service charges? Affects input UX.
-4. Flood data source and licence.
+2. ~~API KN lookup by address / unit-level plomba~~ — resolved 2026-11-14 (§5.1). typRizeni is an enum in the OpenAPI (V, Z, PGP, PD, ZPV); no codebook endpoint for řízení types/states. Remaining (needs API key): `stav` real values, zpusobVyuziti codebook, quota size, calls per report.
+3. ~~MF rent map and service charges~~ — resolved 2026-11-14: excluded (§5.2). Input asks for rent without zálohy.
+4. ~~Flood data source and licence~~ — resolved 2026-11-14 (§5.4).
 5. Name/branding (check trademark + domain).
+6. Reference flat excludes lift / balcony / furnishing; MF publishes surcharges (Praha VK3: lift +48 Kč/m² ≈ 10 %). Ask the user these 2–3 toggles and add surcharges, or ignore in MVP?
+7. MF licence: send the written request (cenovemapy@mf.gov.cz).
