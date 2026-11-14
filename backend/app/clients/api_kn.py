@@ -151,16 +151,20 @@ class NullCache:
 
 
 class PgCache:
-    """Holds API KN data only (no personal data per vyhl. 358/2013 § 14a, no request metadata)."""
+    """Shared external-response cache (table external_cache), keys prefixed per source.
+    Holds public register data only, no request metadata."""
 
-    def __init__(self, engine: Engine) -> None:
+    def __init__(self, engine: Engine, prefix: str = "kn:") -> None:
         self.engine = engine
+        self.prefix = prefix
 
     def get(self, key: str) -> CachedResponse | None:
         with self.engine.connect() as c:
             row = c.execute(
-                text("SELECT status, body FROM api_kn_cache WHERE key = :k AND expires_at > now()"),
-                {"k": key},
+                text(
+                    "SELECT status, body FROM external_cache WHERE key = :k AND expires_at > now()"
+                ),
+                {"k": self.prefix + key},
             ).first()
         return CachedResponse(row.status, row.body) if row else None
 
@@ -168,12 +172,17 @@ class PgCache:
         with self.engine.begin() as c:
             c.execute(
                 text(
-                    "INSERT INTO api_kn_cache (key, status, body, expires_at) "
+                    "INSERT INTO external_cache (key, status, body, expires_at) "
                     "VALUES (:k, :s, CAST(:b AS jsonb), now() + make_interval(secs => :ttl)) "
                     "ON CONFLICT (key) DO UPDATE SET status = EXCLUDED.status, "
                     "body = EXCLUDED.body, fetched_at = now(), expires_at = EXCLUDED.expires_at"
                 ),
-                {"k": key, "s": status, "b": json.dumps(body) if body else None, "ttl": ttl_s},
+                {
+                    "k": self.prefix + key,
+                    "s": status,
+                    "b": json.dumps(body) if body is not None else None,
+                    "ttl": ttl_s,
+                },
             )
 
 

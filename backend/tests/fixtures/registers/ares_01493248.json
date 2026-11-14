@@ -1,0 +1,200 @@
+{
+  "ico": "01493248",
+  "obchodniJmeno": "Stavby Kohout s.r.o.",
+  "sidlo": {
+    "kodStatu": "CZ",
+    "nazevStatu": "Česká republika",
+    "kodKraje": 35,
+    "nazevKraje": "Jihočeský kraj",
+    "kodOkresu": 3302,
+    "nazevOkresu": "Český Krumlov",
+    "kodObce": 513661,
+    "nazevObce": "Nová Ves",
+    "cisloDomovni": 41,
+    "kodCastiObce": 105490,
+    "nazevCastiObce": "Nová Ves",
+    "kodAdresnihoMista": 8725306,
+    "psc": 38203,
+    "textovaAdresa": "č.p. 41, 38203 Nová Ves",
+    "standardizaceAdresy": true,
+    "typCisloDomovni": 1
+  },
+  "pravniForma": "112",
+  "pravniFormaRos": "112",
+  "financniUrad": "082",
+  "datumVzniku": "2013-03-21",
+  "datumAktualizace": "2025-12-04",
+  "dic": "CZ01493248",
+  "icoId": "01493248",
+  "adresaDorucovaci": {
+    "radekAdresy1": "č.p. 41",
+    "radekAdresy2": "38203 Nová Ves"
+  },
+  "czNace2008": [
+    "00",
+    "4120",
+    "43320",
+    "4391"
+  ],
+  "seznamRegistraci": {
+    "stavZdrojeRos": "AKTIVNI",
+    "stavZdrojeVr": "AKTIVNI",
+    "stavZdrojeRes": "AKTIVNI",
+    "stavZdrojeRzp": "AKTIVNI",
+    "stavZdrojeNrpzs": "NEEXISTUJICI",
+    "stavZdrojeRpsh": "NEEXISTUJICI",
+    "stavZdrojeRcns": "NEEXISTUJICI",
+    "stavZdrojeSzr": "NEEXISTUJICI",
+    "stavZdrojeDph": "ZANIKLY",
+    "stavZdrojeSkDph": "NEEXISTUJICI",
+    "stavZdrojeSd": "NEEXISTUJICI",
+    "stavZdrojeIr": "AKTIVNI",
+    "stavZdrojeCeu": "NEEXISTUJICI",
+    "stavZdrojeRs": "NEEXISTUJICI",
+    "stavZdrojeRed": "NEEXISTUJICI",
+    "stavZdrojeMonitor": "NEEXISTUJICI"
+  },
+  "primarniZdroj": "ros",
+  "dalsiUdaje": [
+    {
+      "obchodniJmeno": [
+        {
+          "obchodniJmeno": "Stavby Kohout s.r.o.",
+          "primarniZaznam": true
+        }
+      ],
+      "sidlo": [
+        {
+          "sidlo": {
+            "kodStatu": "CZ",
+            "nazevStatu": "Česká republika",
+            "kodKraje": 35,
+            "nazevKraje": "Jihočeský kraj",
+            "kodOkresu": 3302,
+            "nazevOkresu": "Český Krumlov",
+            "kodObce": 513661,
+            "nazevObce": "Nová Ves",
+            "cisloDomovni": 41,
+            "kodCastiObce": 105490,
+            "nazevCastiObce": "Nová Ves",
+            "kodAdresnihoMista": 8725306,
+            "psc": 38203,
+            "textovaAdresa": "č.p. 41, 38203 Nová Ves",
+            "standardizaceAdresy": true,
+            "typCisloDomovni": 1
+          },
+          "primarniZaznam": true
+        }
+      ],
+      "pravniForma": "112",
+      "pravniFormaRos": "112",
+      "datovyZdroj": "res"
+    },
+    {
+      "obchodniJmeno": [
+        {
+          "obchodniJmeno": "Stavby Kohout s.r.o.",
+          "primarniZaznam": true
+        }
+      ],
+      "sidlo": [
+        {
+          "sidlo": {
+            "kodStatu": "CZ",
+            "nazevStatu": "Česká republika",
+            "kodKraje": 35,
+            "nazevKraje": "Jihočeský kraj",
+            "kodOkresu": 3302,
+            "nazevOkresu": "Český Krumlov",
+            "kodObce": 513661,
+            "nazevObce": "Nová Ves",
+            "cisloDomovni": 41,
+            "kodCastiObce": 105490,
+            "nazevCastiObce": "Nová Ves",
+            "kodAdresnihoMista": 8725306,
+            "psc": 38203,
+            "textovaAdresa": "č.p. 41, 38203 Nová Ves",
+            "standardizaceAdresy": true,
+            "typCisloDomovni": 1
+          },
+          "primarniZaznam": true
+        }
+      ],
+      "pravniFormaRos": "112",
+      "datovyZdroj": "ros"
+    },
+    {
+      "obchodniJmeno": [
+        {
+          "obchodniJmeno": "Stavby Kohout s.r.o.",
+          "primarniZaznam": true
+        }
+      ],
+      "sidlo": [
+        {
+          "sidlo": {
+            "kodStatu": "CZ",
+            "nazevStatu": "Česká republika",
+            "kodKraje": 35,
+            "nazevKraje": "Jihočeský kraj",
+            "kodOkresu": 3302,
+            "nazevOkresu": "Český Krumlov",
+            "kodObce": 513661,
+            "nazevObce": "Nová Ves",
+            "cisloDomovni": 41,
+            "kodCastiObce": 105490,
+            "nazevCastiObce": "Nová Ves",
+            "kodAdresnihoMista": 8725306,
+            "psc": 38203,
+            "textovaAdresa": "č.p. 41, 38203 Nová Ves",
+            "standardizaceAdresy": true,
+            "typCisloDomovni": 1
+          },
+          "primarniZaznam": true
+        }
+      ],
+      "pravniForma": "112",
+      "datovyZdroj": "rzp"
+    },
+    {
+      "obchodniJmeno": [
+        {
+          "obchodniJmeno": "Stavby Kohout s.r.o.",
+          "primarniZaznam": true
+        }
+      ],
+      "sidlo": [
+        {
+          "sidlo": {
+            "kodStatu": "CZ",
+            "nazevStatu": "Česká republika",
+            "kodKraje": 35,
+            "nazevKraje": "Jihočeský kraj",
+            "kodOkresu": 3302,
+            "nazevOkresu": "Český Krumlov",
+            "kodObce": 513661,
+            "nazevObce": "Nová Ves",
+            "cisloDomovni": 41,
+            "kodCastiObce": 105490,
+            "nazevCastiObce": "Nová Ves",
+            "kodAdresnihoMista": 8725306,
+            "psc": 38203,
+            "textovaAdresa": "č.p. 41, 38203 Nová Ves",
+            "standardizaceAdresy": true,
+            "typCisloDomovni": 1
+          },
+          "primarniZaznam": true
+        }
+      ],
+      "pravniForma": "112",
+      "spisovaZnacka": "C 21680/KSCB",
+      "datovyZdroj": "vr"
+    }
+  ],
+  "czNace": [
+    "41000",
+    "43320",
+    "43410",
+    "00"
+  ]
+}

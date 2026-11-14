@@ -57,6 +57,9 @@ def db(db_engine: Engine) -> Iterator[Engine]:
     """Per-test isolation: truncate data tables."""
     with db_engine.begin() as c:
         c.execute(
-            text("TRUNCATE ingest_state, address_point, rent_map_dataset, api_kn_cache CASCADE")
+            text(
+                "TRUNCATE ingest_state, address_point, rent_map_dataset, external_cache, "
+                "rate_limit_counter, flood_zone CASCADE"
+            )
         )
     yield db_engine
