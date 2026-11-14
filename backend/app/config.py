@@ -1,16 +1,42 @@
 from functools import lru_cache
 from pathlib import Path
 
-from pydantic import SecretStr
+from pydantic import BaseModel, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+
+
+class ScoringSettings(BaseModel):
+    """Report thresholds (SPEC §6). Override via env, e.g. SCORING__PRICE_RED_BELOW=0.65."""
+
+    price_red_below: float = 0.70
+    price_yellow_below: float = 0.85
+    price_yellow_above: float = 1.15
+    price_red_above: float = 1.30
+    # MF data coverage 1–5; at or below this the price block is capped at yellow.
+    price_low_coverage_max: int = 2
+    flood_near_m: int = 100
+    # Scam flags raised from the questionnaire; anything not listed here is red.
+    yellow_flags: list[str] = ["unit_number_withheld"]
+
+
+class ProtectionSettings(BaseModel):
+    """SPEC §4.2. Counters are keyed by salted hashes, never raw IPs."""
+
+    suggest_per_ip_per_minute: int = 60
+    report_per_ip_per_hour: int = 10
+    report_per_device_per_day: int = 20
+    api_kn_daily_budget: int = 450  # of 500/day; leave headroom for ops and ingestion
+    trust_forwarded_for: bool = False  # set True only behind our own reverse proxy
+    attestation_mode: str = "disabled"  # disabled | app_attest (M4)
 
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=(REPO_ROOT / ".env",),
         env_file_encoding="utf-8",
+        env_nested_delimiter="__",
         extra="ignore",
     )
 
@@ -22,6 +48,11 @@ class Settings(BaseSettings):
     cuzk_timeout_s: float = 15.0
 
     cors_allow_origins: list[str] = []
+    # Secret for hashing IPs/device ids in rate-limit counters (rotated daily with the date).
+    rate_limit_salt: SecretStr = SecretStr("dev-only-change-me")
+
+    scoring: ScoringSettings = ScoringSettings()
+    protection: ProtectionSettings = ProtectionSettings()
 
     # --- Ingestion (SPEC §5.2, §5) ---
     mf_rent_map_page_url: str = (

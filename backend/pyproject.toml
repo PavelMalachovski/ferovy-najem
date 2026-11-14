@@ -11,6 +11,7 @@ dependencies = [
     "openpyxl>=3.1.5",
     "psycopg[binary]>=3.3.9",
     "pydantic-settings>=2.16.3",
+    "pyogrio>=0.13.0",
     "sqlalchemy>=2",
     "uvicorn[standard]>=0.54.0",
 ]
@@ -19,6 +20,7 @@ dependencies = [
 dev = [
     "pytest>=9.2.0",
     "ruff>=0.17.5",
+    "shapely>=2.2.0",
 ]
 
 [tool.uv]

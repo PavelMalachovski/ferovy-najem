@@ -153,8 +153,9 @@ struct MockReportService: ReportService {
             .filter { req.answers[$0] == true }
             .compactMap { ScamFlag(rawValue: $0.rawValue) }
         if verdict == .farBelow { flags.append(.priceFarBelowMedian) }
+        // No flags and no answers means "not checked", not "OK".
         let scamStatus: Status =
-            flags.isEmpty ? .green :
+            flags.isEmpty ? (req.answers.isEmpty ? .unknown : .green) :
             flags == [.unitNumberWithheld] ? .yellow : .red
         let scam = ScamBlock(status: scamStatus, flags: flags)
 

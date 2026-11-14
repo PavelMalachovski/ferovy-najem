@@ -29,6 +29,7 @@ class Building:
     ku_name: str | None
     lv_number: int | None
     unit_count: int
+    point_5514: tuple[float, float] | None  # definiční bod (x, y) in S-JTSK
 
 
 @dataclass(frozen=True)
@@ -94,6 +95,7 @@ def resolve(client: ApiKnClient, ruian_code: int, unit_number: int | None = None
         ku_name=ku.nazev if ku else None,
         lv_number=s.lv.cislo if s.lv else None,
         unit_count=len(s.jednotky),
+        point_5514=(s.definicni_bod.x, s.definicni_bod.y) if s.definicni_bod else None,
     )
     result = PropertyLookup(
         ruian_code=ruian_code,

@@ -76,8 +76,16 @@ class RizeniDef(_Model):
     kod_pracoviste: int
 
 
+class DefinicniBod(_Model):
+    """S-JTSK EPSG:5514 (negative x/y)."""
+
+    x: float
+    y: float
+
+
 class Stavba(_Model):
     id: int
+    definicni_bod: DefinicniBod | None = None
     typ_stavby: Ref | None = None
     cisla_domovni: list[int] = []
     cast_obce: Ref | None = None

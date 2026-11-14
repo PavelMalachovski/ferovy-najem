@@ -24,12 +24,12 @@ extension Status {
         switch self {
         case .green: "OK"
         case .yellow: "Check"
-        case .red: "Warning"
+        case .red: "Serious"
         case .unknown: "Not checked"
         }
     }
 
-    var headline: LocalizedStringKey {
+    var headline: LocalizedStringResource {
         switch self {
         case .green: "No warning signs found"
         case .yellow: "A few things to check"
