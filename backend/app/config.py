@@ -38,6 +38,16 @@ class ProtectionSettings(BaseModel):
     attest_per_ip_per_hour: int = 20
 
 
+class OpsSettings(BaseModel):
+    """Scheduled jobs and alerts. Alerts always go to the log; Telegram if both are set."""
+
+    alert_telegram_bot_token: SecretStr | None = None
+    alert_telegram_chat_id: str | None = None
+    quota_warn_levels: list[float] = [0.7, 0.9]
+    key_expiry_warn_days: int = 30
+    attested_key_retention_days: int = 180
+
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=(REPO_ROOT / ".env",),
@@ -58,6 +68,7 @@ class Settings(BaseSettings):
     rate_limit_salt: SecretStr = SecretStr("dev-only-change-me")
 
     scoring: ScoringSettings = ScoringSettings()
+    ops: OpsSettings = OpsSettings()
     protection: ProtectionSettings = ProtectionSettings()
 
     # --- Ingestion (SPEC §5.2, §5) ---
