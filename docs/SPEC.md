@@ -238,8 +238,8 @@ Screens:
 | # | Goal | Done when |
 |---|---|---|
 | M0 | Setup | Repo, Docker compose (API + PostGIS), CI, API KN key works (one test call) |
-| M1 | Data | MF XLSX ingested (latest quarter), RÚIAN addresses ingested for autocomplete, address → building → parcel → k.ú. resolves via API KN |
-| M2 | Backend | `/address/suggest` + `/report` with price + ARES/ISIR + API KN; API KN cache; IP rate limiting; attestation interface (disabled mode); tests with fixtures |
+| M1 | Data | MF XLSX ingested (latest quarter), RÚIAN addresses ingested for autocomplete, address → building → k.ú. → unit → řízení resolves via API KN; API KN cache (moved from M2: 500 calls/day) — **done 2026-11-14** |
+| M2 | Backend | `/address/suggest` + `/report` with price + ARES/ISIR + API KN; IP rate limiting; attestation interface (disabled mode); tests with fixtures |
 | M3 | iOS | Input → report flow works in Simulator against local backend |
 | M4 | Beta | Backend deployed, App Attest enforced, per-device limits, quota alerts, TestFlight build, 10–20 real renters test it |
 | M5 | Money | StoreKit full report, landing page, App Store submission |

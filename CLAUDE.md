@@ -37,6 +37,10 @@ cd backend && uv sync                     # deps + Python 3.12 managed by uv
 cd backend && uv run pytest
 cd backend && uv run ruff check . && uv run ruff format --check .
 cd backend && uv run python -m scripts.probe_api_kn   # live API KN probe, writes fixtures
+cd backend && uv run alembic upgrade head            # DB schema
+cd backend && uv run python -m app.ingest.mf_rent_map          # MF rent map (latest XLSX)
+cd backend && uv run python -m app.ingest.ruian_addresses      # RÚIAN addresses (Praha+Brno; --all)
+cd backend && uv run python -m app.cli.resolve 21951977 --unit 24 --disposition 2+kk   # M1 chain
 cd ios && xcodegen generate && open FerovyNajem.xcodeproj   # .xcodeproj is generated, not committed
 cd ios && xcodebuild -project FerovyNajem.xcodeproj -scheme FerovyNajem \
   -destination 'platform=iOS Simulator,name=iPhone 18 Pro' -derivedDataPath build build
