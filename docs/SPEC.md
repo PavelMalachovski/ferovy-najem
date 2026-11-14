@@ -114,8 +114,9 @@ Relevant endpoints (base `/api/v1`):
 | `GET /Stavby/Vyhledani` | KodCastiObce, TypStavby, CisloDomovni | Fallback lookup |
 | `GET /Jednotky/{id}` | ISKN id | Full unit |
 | `GET /Jednotky/Vyhledani` | KodCastiObce*, TypStavby*, CisloDomovni*, CisloJednotky* | Unit by natural id |
-| `GET /Parcely/{id}` | ISKN id | Parcel → katastrální území (for MF map) |
+| `GET /Parcely/{id}` | ISKN id | Not needed for reports: k.ú. is already in `Stavba.parcely[].katastralniUzemi` |
 | `GET /Rizeni/{id}` | ISKN id | Proceeding details |
+| `GET /Rizeni/PrijateDne` | TypRizeni, KodPracoviste, DatumPrijeti | Proceedings received on a day (used only to sample `stav` values) |
 | `GET /AplikacniSluzby/StavUctu` | — | Quota / period |
 
 Response schemas (fields):
@@ -128,19 +129,23 @@ Response schemas (fields):
 Flow:
 1. User picks address → `kod adresního místa` (RÚIAN autocomplete).
 2. `/Stavby/AdresniMisto/{kod}` → building: `jednotky`, `parcely`, `rizeniPlomby`.
-3. Building `parcely[0]` → `/Parcely/{id}` → k.ú. code → MF rent map lookup.
+3. Building `parcely[0].katastralniUzemi` → k.ú. code (+ `obec`) → MF rent map lookup. No extra call.
 4. Unit number (číslo jednotky, e.g. 1234/12) is **optional**.
-   - Given: match in `jednotky` → `/Jednotky/{id}`.
+   - Given: match in `jednotky` → `/Jednotky/{id}`. **`cisloJednotky` is encoded as `cisloDomovni × 10000 + unit`** (1403/24 → `14030024`); match against every `cislaDomovni` of the building.
    - Not given: building-level check only (building found, building-level plomby, k.ú.); report says so and shows the hint: *"Ask the landlord for the unit number (číslo jednotky) or LV number. A genuine owner can give it right away."* (cs/en via codes).
    - Building has no units (whole-house ownership): skip the unit check and say so.
 5. For each item in `rizeniPlomby` (unit and building) → `/Rizeni/{id}` → type + status + date.
 
 Signals:
 - Unit not found under that building/number → yellow ("couldn't confirm the unit; ask landlord for číslo jednotky / LV").
-- `zpusobVyuziti` ≠ byt (ateliér, nebytový prostor, …) → yellow ("not registered as a flat"). **[VERIFY: codebook values via /CiselnikyISKN/ZpusobyVyuzitiJednotky]**
-- Active řízení of type V (vklad) on unit → red ("ownership or lien change in progress"); other active types → yellow with plain explanation. **[VERIFY: typRizeni codes and stav values in codebooks; map each to user-facing text]**
+- Unit `zpusobVyuziti` (codebook `ZpusobyVyuzitiJednotky`, verified 2026-11-14): 1 byt → ok; 2 ateliér, 3 garáž, 4 dílna nebo provozovna, 5 jiný nebytový prostor, 8 skupina nebytových prostorů → yellow ("not registered as a flat"); 6 rozestavěná jednotka → yellow ("registered as unfinished"); 7 skupina bytů, 9 skupina bytů a nebytových prostorů → yellow ("registered as a group of units, not a single flat").
+- `typJednotky` (codebook `TypyJednotky`): 1 byt nebo nebytový prostor, 2 rozestavěný…, 3 vymezená podle zákona o vlastnictví bytů, 4 vymezená podle občanského zákoníku. Informational only.
+- `typRizeni` is an enum in the OpenAPI, no codebook endpoint: V vklad, Z záznam, PGP potvrzení GP, PD podací deník, ZPV pomocné řízení V.
+- `stav` is **free Czech text, not a code**, filled only for some types. Observed: "U nemovitostí byla vyznačena plomba" (V, in progress), "Řízení bylo ukončeno" (finished). `provedeneOperace[].nazev` e.g. "Založení řízení", "Zaplombování", "Provedení záznamu", "Ukončení řízení". Rule: an entry in `rizeniPlomby` = in progress unless `stav` = "Řízení bylo ukončeno"; unknown `stav` texts are treated as in progress and logged.
+- Active V on unit → red ("ownership or lien change in progress"); V on building, or Z / PGP / PD / ZPV anywhere → yellow with plain explanation.
 - Unit number not given → property block reports `check_level: building`, no colour penalty by itself (missing input ≠ risk).
-- Each report costs ~3–6 API calls → cache per §4.2 and watch quota via `StavUctu`.
+- **Quota (verified 2026-11-14): 500 calls per day** (`aktualniObdobi` = date). `StavUctu` itself is not counted. API key expires after ~6 months (`expiraceApiKey`) → alert 30 days before.
+- **Calls per report** (verified): building 1 + unit 1 + 1 per plomba → typically 2, 3–4 with proceedings; codebooks cached 7 d. Without cache ≈ 150–250 reports/day → enough for beta; ask ČÚZK about a higher limit before public launch.
 
 ### 5.2 MF rent map — verified file structure (2026-11-14)
 
@@ -242,7 +247,7 @@ Screens:
 ## 10. Open questions
 
 1. Apple Developer account: personal or s.r.o. (D-U-N-S takes 1–2 weeks)?
-2. ~~API KN lookup by address / unit-level plomba~~ — resolved 2026-11-14 (§5.1). typRizeni is an enum in the OpenAPI (V, Z, PGP, PD, ZPV); no codebook endpoint for řízení types/states. Remaining (needs API key): `stav` real values, zpusobVyuziti codebook, quota size, calls per report.
+2. ~~API KN lookup, codebooks, quota~~ — resolved 2026-11-14 (§5.1). Open: daily limit of 500 calls may be too low for public launch → ask ČÚZK.
 3. ~~MF rent map and service charges~~ — resolved 2026-11-14: excluded (§5.2). Input asks for rent without zálohy.
 4. ~~Flood data source and licence~~ — resolved 2026-11-14 (§5.4).
 5. Name/branding (check trademark + domain).

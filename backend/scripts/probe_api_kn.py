@@ -35,7 +35,8 @@ CODEBOOKS = [
 # Defensive guard: API KN must not return personal data (vyhl. 358/2013 § 14a).
 # If a response ever contains such keys, refuse to save it as a fixture.
 PII_KEY_PATTERN = re.compile(
-    r"vlastnik|vlastnic|jmeno|prijmeni|rodne|osoba|subjekt|opravnen|datumNarozeni",
+    # "jmeno" must not match "jmenovatel" (share denominator), hence the lookahead.
+    r"vlastnik|vlastnic|jmeno(?!vatel)|prijmeni|rodne|osoba|subjekt|opravnen|datumNarozeni",
     re.IGNORECASE,
 )
 
@@ -59,6 +60,8 @@ class Probe:
         return body
 
     def _save(self, name: str, body: Any) -> None:
+        if isinstance(body, dict) and "idSluzby" in body:
+            body = {**body, "idSluzby": "00000000-0000-0000-0000-000000000000"}  # account id
         hits = sorted(_find_pii_keys(body))
         if hits:
             sys.exit(f"ABORT: possible personal-data keys {hits} in {name}; not saved.")
@@ -154,7 +157,9 @@ def main() -> None:
 
     jednotky = stavba.get("jednotky") or []
     if args.unit is not None:
-        targets = [j for j in jednotky if j.get("cisloJednotky") == args.unit]
+        # API encodes cisloJednotky as cisloDomovni * 10000 + unit (1403/24 -> 14030024).
+        wanted = {cd * 10000 + args.unit for cd in stavba.get("cislaDomovni") or []}
+        targets = [j for j in jednotky if j.get("cisloJednotky") in wanted]
         if not targets:
             print(f"  unit {args.unit} not in building.jednotky")
     else:
