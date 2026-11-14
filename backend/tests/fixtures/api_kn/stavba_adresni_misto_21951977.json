@@ -1,0 +1,188 @@
+{
+  "data": {
+    "id": 892763101,
+    "typStavby": {
+      "kod": 1,
+      "nazev": "budova s číslem popisným"
+    },
+    "cislaDomovni": [
+      1403
+    ],
+    "castObce": {
+      "kod": 490156,
+      "nazev": "Nusle"
+    },
+    "docasna": false,
+    "typyVazby": "JeSoucastiPozemku",
+    "obec": {
+      "kod": 554782,
+      "nazev": "Praha"
+    },
+    "lv": {
+      "id": 1929032101,
+      "cislo": 1121,
+      "katastralniUzemi": {
+        "kod": 728161,
+        "nazev": "Nusle"
+      }
+    },
+    "pravoStavby": null,
+    "definicniBod": {
+      "id": 438547101,
+      "x": -741283.09,
+      "y": -1046040.95
+    },
+    "jednotky": [
+      {
+        "id": 24134439010,
+        "cisloJednotky": 14030001
+      },
+      {
+        "id": 24134440010,
+        "cisloJednotky": 14030002
+      },
+      {
+        "id": 24134441010,
+        "cisloJednotky": 14030003
+      },
+      {
+        "id": 24134442010,
+        "cisloJednotky": 14030004
+      },
+      {
+        "id": 24134443010,
+        "cisloJednotky": 14030005
+      },
+      {
+        "id": 24134444010,
+        "cisloJednotky": 14030006
+      },
+      {
+        "id": 24134445010,
+        "cisloJednotky": 14030007
+      },
+      {
+        "id": 24134446010,
+        "cisloJednotky": 14030008
+      },
+      {
+        "id": 24134447010,
+        "cisloJednotky": 14030009
+      },
+      {
+        "id": 24134448010,
+        "cisloJednotky": 14030010
+      },
+      {
+        "id": 24134449010,
+        "cisloJednotky": 14030011
+      },
+      {
+        "id": 24134450010,
+        "cisloJednotky": 14030012
+      },
+      {
+        "id": 24134451010,
+        "cisloJednotky": 14030013
+      },
+      {
+        "id": 24134453010,
+        "cisloJednotky": 14030014
+      },
+      {
+        "id": 24134454010,
+        "cisloJednotky": 14030015
+      },
+      {
+        "id": 24134455010,
+        "cisloJednotky": 14030016
+      },
+      {
+        "id": 24134456010,
+        "cisloJednotky": 14030017
+      },
+      {
+        "id": 24136419010,
+        "cisloJednotky": 14030018
+      },
+      {
+        "id": 24136420010,
+        "cisloJednotky": 14030019
+      },
+      {
+        "id": 24136421010,
+        "cisloJednotky": 14030020
+      },
+      {
+        "id": 24136422010,
+        "cisloJednotky": 14030021
+      },
+      {
+        "id": 24136423010,
+        "cisloJednotky": 14030022
+      },
+      {
+        "id": 24136424010,
+        "cisloJednotky": 14030023
+      },
+      {
+        "id": 24136425010,
+        "cisloJednotky": 14030024
+      },
+      {
+        "id": 24136426010,
+        "cisloJednotky": 14030025
+      },
+      {
+        "id": 24136428010,
+        "cisloJednotky": 14030026
+      },
+      {
+        "id": 24136427010,
+        "cisloJednotky": 14030027
+      },
+      {
+        "id": 24136429010,
+        "cisloJednotky": 14030028
+      },
+      {
+        "id": 24136430010,
+        "cisloJednotky": 14030029
+      },
+      {
+        "id": 24136431010,
+        "cisloJednotky": 14030030
+      }
+    ],
+    "zpusobVyuziti": {
+      "kod": 6,
+      "nazev": "bytový dům"
+    },
+    "zpusobyOchrany": [
+      {
+        "kod": 19,
+        "nazev": "ochr.pásmo nem.kult.pam.,pam.zóny,rezervace,nem.nár.kult.pam"
+      }
+    ],
+    "parcely": [
+      {
+        "id": 2091948101,
+        "typParcely": "PKN",
+        "druhCislovaniParcely": 2,
+        "kmenoveCisloParcely": 423,
+        "poddeleniCislaParcely": null,
+        "katastralniUzemi": {
+          "kod": 728161,
+          "nazev": "Nusle"
+        }
+      }
+    ],
+    "adresniMista": [
+      21951977
+    ],
+    "rizeniPlomby": []
+  },
+  "zpravy": [],
+  "aktualnostDatK": "2026-11-14T17:20:00",
+  "provedenoVolani": 10
+}

@@ -1,0 +1,50 @@
+{
+  "data": {
+    "id": 24136425010,
+    "cisloJednotky": 14030024,
+    "typJednotky": {
+      "kod": 4,
+      "nazev": "jednotka vymezená podle občanského zákoníku"
+    },
+    "zpusobVyuziti": {
+      "kod": 1,
+      "nazev": "byt"
+    },
+    "zpusobyOchrany": [
+      {
+        "kod": 4,
+        "nazev": "památkově chráněné území"
+      }
+    ],
+    "podilNaSpolecnychCastechDomu": {
+      "citatel": 1,
+      "jmenovatel": 30
+    },
+    "lv": {
+      "id": 19043867010,
+      "cislo": 12404,
+      "katastralniUzemi": {
+        "kod": 728161,
+        "nazev": "Nusle"
+      }
+    },
+    "vymezenaVeStavbe": {
+      "id": 892763101,
+      "typStavby": {
+        "kod": 1,
+        "nazev": "budova s číslem popisným"
+      },
+      "cislaDomovni": [
+        1403
+      ],
+      "castObce": {
+        "kod": 490156,
+        "nazev": "Nusle"
+      }
+    },
+    "rizeniPlomby": []
+  },
+  "zpravy": [],
+  "aktualnostDatK": "2026-11-14T17:20:00",
+  "provedenoVolani": 12
+}
