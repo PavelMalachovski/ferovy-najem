@@ -1,0 +1,33 @@
+{
+  "data": {
+    "id": 110040036010,
+    "typRizeni": "Z",
+    "poradoveCislo": 49576,
+    "rok": 2026,
+    "kodPracoviste": 101,
+    "datumPrijeti": "2026-11-13T01:14:10",
+    "stav": "Řízení bylo ukončeno",
+    "stavUhrady": null,
+    "provedeneOperace": [
+      {
+        "nazev": "Založení řízení",
+        "datumProvedeni": "2026-11-13T01:14:10"
+      },
+      {
+        "nazev": "Provedení záznamu",
+        "datumProvedeni": "2026-11-13T01:14:36"
+      },
+      {
+        "nazev": "Ukončení řízení",
+        "datumProvedeni": "2026-11-13T01:14:36"
+      }
+    ],
+    "navazanaRizeni": null,
+    "poznamky": [
+      "U řízení typu Z se neposkytují navázaná řízení"
+    ]
+  },
+  "zpravy": [],
+  "aktualnostDatK": "2026-11-14T17:20:00",
+  "provedenoVolani": 20
+}

@@ -1,0 +1,1386 @@
+{
+  "data": [
+    {
+      "id": 110041154010,
+      "typRizeni": "V",
+      "poradoveCislo": 75142,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110041161010,
+      "typRizeni": "V",
+      "poradoveCislo": 75143,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110041167010,
+      "typRizeni": "V",
+      "poradoveCislo": 75144,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110041188010,
+      "typRizeni": "V",
+      "poradoveCislo": 75148,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110041227010,
+      "typRizeni": "V",
+      "poradoveCislo": 75151,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110041253010,
+      "typRizeni": "V",
+      "poradoveCislo": 75153,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110041279010,
+      "typRizeni": "V",
+      "poradoveCislo": 75155,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110041305010,
+      "typRizeni": "V",
+      "poradoveCislo": 75157,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110041310010,
+      "typRizeni": "V",
+      "poradoveCislo": 75158,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110041324010,
+      "typRizeni": "V",
+      "poradoveCislo": 75160,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110041350010,
+      "typRizeni": "V",
+      "poradoveCislo": 75162,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110041354010,
+      "typRizeni": "V",
+      "poradoveCislo": 75163,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110041456010,
+      "typRizeni": "V",
+      "poradoveCislo": 75169,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110041472010,
+      "typRizeni": "V",
+      "poradoveCislo": 75172,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110041495010,
+      "typRizeni": "V",
+      "poradoveCislo": 75175,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110043361010,
+      "typRizeni": "V",
+      "poradoveCislo": 75145,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110043377010,
+      "typRizeni": "V",
+      "poradoveCislo": 75146,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110043381010,
+      "typRizeni": "V",
+      "poradoveCislo": 75147,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110043394010,
+      "typRizeni": "V",
+      "poradoveCislo": 75149,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110043414010,
+      "typRizeni": "V",
+      "poradoveCislo": 75150,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110043432010,
+      "typRizeni": "V",
+      "poradoveCislo": 75152,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110043475010,
+      "typRizeni": "V",
+      "poradoveCislo": 75154,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110043522010,
+      "typRizeni": "V",
+      "poradoveCislo": 75156,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110043528010,
+      "typRizeni": "V",
+      "poradoveCislo": 75159,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110043578010,
+      "typRizeni": "V",
+      "poradoveCislo": 75161,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110043641010,
+      "typRizeni": "V",
+      "poradoveCislo": 75164,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110043693010,
+      "typRizeni": "V",
+      "poradoveCislo": 75167,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110043728010,
+      "typRizeni": "V",
+      "poradoveCislo": 75170,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110043754010,
+      "typRizeni": "V",
+      "poradoveCislo": 75173,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110043798010,
+      "typRizeni": "V",
+      "poradoveCislo": 75176,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110043828010,
+      "typRizeni": "V",
+      "poradoveCislo": 75179,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110043848010,
+      "typRizeni": "V",
+      "poradoveCislo": 75182,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110043864010,
+      "typRizeni": "V",
+      "poradoveCislo": 75183,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110044093010,
+      "typRizeni": "V",
+      "poradoveCislo": 75190,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110044114010,
+      "typRizeni": "V",
+      "poradoveCislo": 75194,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110044225010,
+      "typRizeni": "V",
+      "poradoveCislo": 75202,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110044379010,
+      "typRizeni": "V",
+      "poradoveCislo": 75214,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110044391010,
+      "typRizeni": "V",
+      "poradoveCislo": 75216,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110044396010,
+      "typRizeni": "V",
+      "poradoveCislo": 75217,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110044419010,
+      "typRizeni": "V",
+      "poradoveCislo": 75220,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110044443010,
+      "typRizeni": "V",
+      "poradoveCislo": 75222,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110044450010,
+      "typRizeni": "V",
+      "poradoveCislo": 75223,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110044460010,
+      "typRizeni": "V",
+      "poradoveCislo": 75225,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110044465010,
+      "typRizeni": "V",
+      "poradoveCislo": 75226,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110044519010,
+      "typRizeni": "V",
+      "poradoveCislo": 75177,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110044748010,
+      "typRizeni": "V",
+      "poradoveCislo": 75192,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110044829010,
+      "typRizeni": "V",
+      "poradoveCislo": 75200,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110044877010,
+      "typRizeni": "V",
+      "poradoveCislo": 75205,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110044919010,
+      "typRizeni": "V",
+      "poradoveCislo": 75208,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110044971010,
+      "typRizeni": "V",
+      "poradoveCislo": 75212,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045017010,
+      "typRizeni": "V",
+      "poradoveCislo": 75219,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045047010,
+      "typRizeni": "V",
+      "poradoveCislo": 75224,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045076010,
+      "typRizeni": "V",
+      "poradoveCislo": 75227,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045222010,
+      "typRizeni": "V",
+      "poradoveCislo": 75231,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045330010,
+      "typRizeni": "V",
+      "poradoveCislo": 75237,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045365010,
+      "typRizeni": "V",
+      "poradoveCislo": 75241,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045372010,
+      "typRizeni": "V",
+      "poradoveCislo": 75242,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045405010,
+      "typRizeni": "V",
+      "poradoveCislo": 75246,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045417010,
+      "typRizeni": "V",
+      "poradoveCislo": 75248,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045444010,
+      "typRizeni": "V",
+      "poradoveCislo": 75250,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045445010,
+      "typRizeni": "V",
+      "poradoveCislo": 75251,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045446010,
+      "typRizeni": "V",
+      "poradoveCislo": 75252,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045462010,
+      "typRizeni": "V",
+      "poradoveCislo": 75255,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045463010,
+      "typRizeni": "V",
+      "poradoveCislo": 75256,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045498010,
+      "typRizeni": "V",
+      "poradoveCislo": 75259,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045507010,
+      "typRizeni": "V",
+      "poradoveCislo": 75260,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045516010,
+      "typRizeni": "V",
+      "poradoveCislo": 75262,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045533010,
+      "typRizeni": "V",
+      "poradoveCislo": 75228,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045632010,
+      "typRizeni": "V",
+      "poradoveCislo": 75229,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045880010,
+      "typRizeni": "V",
+      "poradoveCislo": 75245,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045911010,
+      "typRizeni": "V",
+      "poradoveCislo": 75253,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045953010,
+      "typRizeni": "V",
+      "poradoveCislo": 75257,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110045969010,
+      "typRizeni": "V",
+      "poradoveCislo": 75258,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110046067010,
+      "typRizeni": "V",
+      "poradoveCislo": 75265,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110046113010,
+      "typRizeni": "V",
+      "poradoveCislo": 75268,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110046354010,
+      "typRizeni": "V",
+      "poradoveCislo": 75274,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110046379010,
+      "typRizeni": "V",
+      "poradoveCislo": 75275,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110046392010,
+      "typRizeni": "V",
+      "poradoveCislo": 75277,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110046413010,
+      "typRizeni": "V",
+      "poradoveCislo": 75280,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110046436010,
+      "typRizeni": "V",
+      "poradoveCislo": 75283,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110046464010,
+      "typRizeni": "V",
+      "poradoveCislo": 75285,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110046573010,
+      "typRizeni": "V",
+      "poradoveCislo": 75266,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110046588010,
+      "typRizeni": "V",
+      "poradoveCislo": 75267,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110046607010,
+      "typRizeni": "V",
+      "poradoveCislo": 75269,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110046678010,
+      "typRizeni": "V",
+      "poradoveCislo": 75271,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110046695010,
+      "typRizeni": "V",
+      "poradoveCislo": 75272,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110046745010,
+      "typRizeni": "V",
+      "poradoveCislo": 75273,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110046765010,
+      "typRizeni": "V",
+      "poradoveCislo": 75276,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110046780010,
+      "typRizeni": "V",
+      "poradoveCislo": 75278,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110046784010,
+      "typRizeni": "V",
+      "poradoveCislo": 75279,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110046810010,
+      "typRizeni": "V",
+      "poradoveCislo": 75281,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110046832010,
+      "typRizeni": "V",
+      "poradoveCislo": 75282,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110046848010,
+      "typRizeni": "V",
+      "poradoveCislo": 75284,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110046932010,
+      "typRizeni": "V",
+      "poradoveCislo": 75286,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047001010,
+      "typRizeni": "V",
+      "poradoveCislo": 75288,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047070010,
+      "typRizeni": "V",
+      "poradoveCislo": 75289,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047123010,
+      "typRizeni": "V",
+      "poradoveCislo": 75292,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047130010,
+      "typRizeni": "V",
+      "poradoveCislo": 75293,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047155010,
+      "typRizeni": "V",
+      "poradoveCislo": 75294,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047172010,
+      "typRizeni": "V",
+      "poradoveCislo": 75295,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047190010,
+      "typRizeni": "V",
+      "poradoveCislo": 75296,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047212010,
+      "typRizeni": "V",
+      "poradoveCislo": 75298,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047228010,
+      "typRizeni": "V",
+      "poradoveCislo": 75300,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047229010,
+      "typRizeni": "V",
+      "poradoveCislo": 75301,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047251010,
+      "typRizeni": "V",
+      "poradoveCislo": 75302,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047274010,
+      "typRizeni": "V",
+      "poradoveCislo": 75304,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047277010,
+      "typRizeni": "V",
+      "poradoveCislo": 75305,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047310010,
+      "typRizeni": "V",
+      "poradoveCislo": 75307,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047382010,
+      "typRizeni": "V",
+      "poradoveCislo": 75308,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047413010,
+      "typRizeni": "V",
+      "poradoveCislo": 75309,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047446010,
+      "typRizeni": "V",
+      "poradoveCislo": 75311,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047450010,
+      "typRizeni": "V",
+      "poradoveCislo": 75312,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047465010,
+      "typRizeni": "V",
+      "poradoveCislo": 75314,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047466010,
+      "typRizeni": "V",
+      "poradoveCislo": 75315,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047489010,
+      "typRizeni": "V",
+      "poradoveCislo": 75317,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047495010,
+      "typRizeni": "V",
+      "poradoveCislo": 75318,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047497010,
+      "typRizeni": "V",
+      "poradoveCislo": 75319,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047564010,
+      "typRizeni": "V",
+      "poradoveCislo": 75287,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047696010,
+      "typRizeni": "V",
+      "poradoveCislo": 75290,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047796010,
+      "typRizeni": "V",
+      "poradoveCislo": 75291,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047881010,
+      "typRizeni": "V",
+      "poradoveCislo": 75297,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047924010,
+      "typRizeni": "V",
+      "poradoveCislo": 75299,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110047974010,
+      "typRizeni": "V",
+      "poradoveCislo": 75303,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048023010,
+      "typRizeni": "V",
+      "poradoveCislo": 75306,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048221010,
+      "typRizeni": "V",
+      "poradoveCislo": 75310,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048294010,
+      "typRizeni": "V",
+      "poradoveCislo": 75313,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048310010,
+      "typRizeni": "V",
+      "poradoveCislo": 75316,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048347010,
+      "typRizeni": "V",
+      "poradoveCislo": 75320,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048505010,
+      "typRizeni": "V",
+      "poradoveCislo": 75328,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048509010,
+      "typRizeni": "V",
+      "poradoveCislo": 75331,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048526010,
+      "typRizeni": "V",
+      "poradoveCislo": 75321,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048541010,
+      "typRizeni": "V",
+      "poradoveCislo": 75322,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048560010,
+      "typRizeni": "V",
+      "poradoveCislo": 75323,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048572010,
+      "typRizeni": "V",
+      "poradoveCislo": 75324,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048588010,
+      "typRizeni": "V",
+      "poradoveCislo": 75325,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048605010,
+      "typRizeni": "V",
+      "poradoveCislo": 75326,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048607010,
+      "typRizeni": "V",
+      "poradoveCislo": 75327,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048619010,
+      "typRizeni": "V",
+      "poradoveCislo": 75329,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048622010,
+      "typRizeni": "V",
+      "poradoveCislo": 75330,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048724010,
+      "typRizeni": "V",
+      "poradoveCislo": 75332,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048741010,
+      "typRizeni": "V",
+      "poradoveCislo": 75333,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048753010,
+      "typRizeni": "V",
+      "poradoveCislo": 75334,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048765010,
+      "typRizeni": "V",
+      "poradoveCislo": 75336,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048766010,
+      "typRizeni": "V",
+      "poradoveCislo": 75337,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048787010,
+      "typRizeni": "V",
+      "poradoveCislo": 75339,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048815010,
+      "typRizeni": "V",
+      "poradoveCislo": 75342,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048816010,
+      "typRizeni": "V",
+      "poradoveCislo": 75343,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048817010,
+      "typRizeni": "V",
+      "poradoveCislo": 75344,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048826010,
+      "typRizeni": "V",
+      "poradoveCislo": 75345,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048857010,
+      "typRizeni": "V",
+      "poradoveCislo": 75347,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110048921010,
+      "typRizeni": "V",
+      "poradoveCislo": 75349,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049061010,
+      "typRizeni": "V",
+      "poradoveCislo": 75353,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049092010,
+      "typRizeni": "V",
+      "poradoveCislo": 75354,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049093010,
+      "typRizeni": "V",
+      "poradoveCislo": 75355,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049111010,
+      "typRizeni": "V",
+      "poradoveCislo": 75356,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049122010,
+      "typRizeni": "V",
+      "poradoveCislo": 75357,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049136010,
+      "typRizeni": "V",
+      "poradoveCislo": 75358,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049165010,
+      "typRizeni": "V",
+      "poradoveCislo": 75359,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049177010,
+      "typRizeni": "V",
+      "poradoveCislo": 75360,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049199010,
+      "typRizeni": "V",
+      "poradoveCislo": 75361,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049203010,
+      "typRizeni": "V",
+      "poradoveCislo": 75362,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049226010,
+      "typRizeni": "V",
+      "poradoveCislo": 75363,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049306010,
+      "typRizeni": "V",
+      "poradoveCislo": 75365,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049316010,
+      "typRizeni": "V",
+      "poradoveCislo": 75366,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049337010,
+      "typRizeni": "V",
+      "poradoveCislo": 75367,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049367010,
+      "typRizeni": "V",
+      "poradoveCislo": 75368,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049383010,
+      "typRizeni": "V",
+      "poradoveCislo": 75369,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049418010,
+      "typRizeni": "V",
+      "poradoveCislo": 75370,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049422010,
+      "typRizeni": "V",
+      "poradoveCislo": 75371,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049473010,
+      "typRizeni": "V",
+      "poradoveCislo": 75373,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049511010,
+      "typRizeni": "V",
+      "poradoveCislo": 75374,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049682010,
+      "typRizeni": "V",
+      "poradoveCislo": 75335,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049696010,
+      "typRizeni": "V",
+      "poradoveCislo": 75338,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049712010,
+      "typRizeni": "V",
+      "poradoveCislo": 75340,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049723010,
+      "typRizeni": "V",
+      "poradoveCislo": 75341,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049739010,
+      "typRizeni": "V",
+      "poradoveCislo": 75346,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049788010,
+      "typRizeni": "V",
+      "poradoveCislo": 75348,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049846010,
+      "typRizeni": "V",
+      "poradoveCislo": 75350,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049971010,
+      "typRizeni": "V",
+      "poradoveCislo": 75351,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110049992010,
+      "typRizeni": "V",
+      "poradoveCislo": 75352,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110050254010,
+      "typRizeni": "V",
+      "poradoveCislo": 75364,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110050480010,
+      "typRizeni": "V",
+      "poradoveCislo": 75372,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110051564010,
+      "typRizeni": "V",
+      "poradoveCislo": 75375,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110051589010,
+      "typRizeni": "V",
+      "poradoveCislo": 75376,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110051618010,
+      "typRizeni": "V",
+      "poradoveCislo": 75377,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110051670010,
+      "typRizeni": "V",
+      "poradoveCislo": 75378,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110051848010,
+      "typRizeni": "V",
+      "poradoveCislo": 75380,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110051870010,
+      "typRizeni": "V",
+      "poradoveCislo": 75381,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110051903010,
+      "typRizeni": "V",
+      "poradoveCislo": 75382,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110051907010,
+      "typRizeni": "V",
+      "poradoveCislo": 75383,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110051922010,
+      "typRizeni": "V",
+      "poradoveCislo": 75384,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110051934010,
+      "typRizeni": "V",
+      "poradoveCislo": 75385,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110051949010,
+      "typRizeni": "V",
+      "poradoveCislo": 75386,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110052031010,
+      "typRizeni": "V",
+      "poradoveCislo": 75387,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110052082010,
+      "typRizeni": "V",
+      "poradoveCislo": 75388,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110052124010,
+      "typRizeni": "V",
+      "poradoveCislo": 75389,
+      "rok": 2026,
+      "kodPracoviste": 101
+    },
+    {
+      "id": 110052560010,
+      "typRizeni": "V",
+      "poradoveCislo": 75390,
+      "rok": 2026,
+      "kodPracoviste": 101
+    }
+  ],
+  "zpravy": [],
+  "aktualnostDatK": "2026-11-14T17:20:00",
+  "provedenoVolani": 13
+}

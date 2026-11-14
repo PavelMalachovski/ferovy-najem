@@ -1,0 +1,29 @@
+{
+  "data": {
+    "id": 110041188010,
+    "typRizeni": "V",
+    "poradoveCislo": 75148,
+    "rok": 2026,
+    "kodPracoviste": 101,
+    "datumPrijeti": "2026-11-13T08:03:17",
+    "stav": "U nemovitostí byla vyznačena plomba",
+    "stavUhrady": "U",
+    "provedeneOperace": [
+      {
+        "nazev": "Založení řízení",
+        "datumProvedeni": "2026-11-13T08:03:52"
+      },
+      {
+        "nazev": "Zaplombování",
+        "datumProvedeni": "2026-11-13T08:03:53"
+      }
+    ],
+    "navazanaRizeni": null,
+    "poznamky": [
+      "U řízení typu V se neposkytují navázaná řízení"
+    ]
+  },
+  "zpravy": [],
+  "aktualnostDatK": "2026-11-14T17:20:00",
+  "provedenoVolani": 17
+}
