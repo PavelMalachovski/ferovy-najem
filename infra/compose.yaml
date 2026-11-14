@@ -1,0 +1,34 @@
+name: ferovy-najem
+
+services:
+  db:
+    build: ./db
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-ferovy}
+      POSTGRES_USER: ${POSTGRES_USER:-ferovy}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ferovy}
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build: ../backend
+    env_file:
+      - path: ../.env
+        required: false
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-ferovy}:${POSTGRES_PASSWORD:-ferovy}@db:5432/${POSTGRES_DB:-ferovy}
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  db-data:

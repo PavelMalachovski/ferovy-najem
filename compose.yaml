@@ -1,0 +1,3 @@
+# Entry point so `docker compose up -d` works from the repo root.
+include:
+  - infra/compose.yaml

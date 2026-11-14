@@ -30,7 +30,11 @@ Read `docs/SPEC.md` first. It is the source of truth for scope, data sources, AP
 
 ## Commands (fill in as they appear)
 ```
-docker compose up -d
-cd backend && pytest
-cd backend && ruff check .
+cp .env.example .env                      # once, then fill in CUZK_API_KEY
+docker compose up -d --build              # db (Postgres 16 + PostGIS + pg_trgm) + api on :8000
+curl localhost:8000/v1/health
+cd backend && uv sync                     # deps + Python 3.12 managed by uv
+cd backend && uv run pytest
+cd backend && uv run ruff check . && uv run ruff format --check .
+cd backend && uv run python -m scripts.probe_api_kn   # live API KN probe, writes fixtures
 ```
