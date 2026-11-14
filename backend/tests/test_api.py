@@ -104,6 +104,7 @@ def test_report_green_company_without_isir_call(data):
     assert rep["overall"] == "green"
     assert rep["price"]["verdict"] == "typical"
     assert rep["price"]["expected_per_m2"] == 485
+    assert (rep["price"]["typical_low_per_m2"], rep["price"]["typical_high_per_m2"]) == (412, 558)
     assert rep["property"]["check_level"] == "unit"
     assert rep["property"]["unit_use_name"] == "byt"
     assert rep["property"]["kn_deeplink"].endswith("typ=Jednotka&id=24136425010")
@@ -141,6 +142,15 @@ def test_building_level_without_unit(data):
     assert rep["property"]["hints"] == ["ask_unit_number"]
     assert rep["property"]["status"] == "green"
     assert fake.requests == ["/Stavby/AdresniMisto/21951977"]
+
+
+def test_scam_unknown_without_answers_green_with_no_answers(data):
+    client, *_ = make_client(data)
+    with client:
+        skipped = post(client, rent_czk=24_200).json()["scam_flags"]
+        answered_no = post(client, rent_czk=24_200, answers={"owner_abroad": False}).json()
+    assert skipped == {"status": "unknown", "flags": []}
+    assert answered_no["scam_flags"] == {"status": "green", "flags": []}
 
 
 def test_unit_number_withheld_alone_is_yellow(data):

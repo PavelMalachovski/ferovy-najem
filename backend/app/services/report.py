@@ -205,6 +205,8 @@ def _price(req: s.ReportRequest, deps: ReportDeps, p: PropertyLookup | None) -> 
         verdict=verdict,
         asking_per_m2=round(asking, 1),
         expected_per_m2=expected,
+        typical_low_per_m2=round(expected * sc.price_yellow_below),
+        typical_high_per_m2=round(expected * sc.price_yellow_above),
         reference_per_m2=ref.reference_new_build if f.new_build else ref.reference,
         surcharge_per_m2=ref.surcharge_per_m2(f),
         band_low=ref.band_low,
@@ -291,6 +293,7 @@ def _scam(req: s.ReportRequest, price: s.PriceBlock, sc: ScoringSettings) -> s.S
     if price.verdict == "far_below" and not price.limited_data:
         flags.append("price_far_below_reference")
     if not flags:
-        return s.ScamBlock(status="green", flags=[])
+        # Unanswered questionnaire = not checked, not "OK" (only answered questions count).
+        return s.ScamBlock(status="green" if req.answers else "unknown", flags=[])
     status = "yellow" if all(f in sc.yellow_flags for f in flags) else "red"
     return s.ScamBlock(status=status, flags=flags)

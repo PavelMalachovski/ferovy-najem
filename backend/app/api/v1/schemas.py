@@ -76,6 +76,9 @@ class PriceBlock(BaseModel):
     verdict: Literal["far_below", "below", "typical", "above", "far_above"] | None = None
     asking_per_m2: float | None = None
     expected_per_m2: int | None = None
+    # "Typical" (green) range around expected, from scoring config: clients don't hard-code it.
+    typical_low_per_m2: int | None = None
+    typical_high_per_m2: int | None = None
     reference_per_m2: int | None = None
     surcharge_per_m2: int | None = None
     band_low: int | None = None
