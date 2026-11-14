@@ -59,7 +59,7 @@ def db(db_engine: Engine) -> Iterator[Engine]:
         c.execute(
             text(
                 "TRUNCATE ingest_state, address_point, rent_map_dataset, external_cache, "
-                "rate_limit_counter, flood_zone CASCADE"
+                "rate_limit_counter, flood_zone, attest_challenge, attested_key CASCADE"
             )
         )
     yield db_engine

@@ -1,6 +1,7 @@
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, Header, Request
+from fastapi.concurrency import run_in_threadpool
 
 from app.api.deps import Services, get_services
 from app.api.protection import client_ip, hashed
@@ -12,20 +13,26 @@ DAY = 86400
 
 
 @router.post("/report", response_model=ReportResponse)
-def report(
+async def report(
     req: ReportRequest,
     request: Request,
     svc: Annotated[Services, Depends(get_services)],
     accept_language: Annotated[str | None, Header()] = None,
 ):
-    """Computed on request, never stored."""
+    """Computed on request, never stored. With App Attest enabled, send X-App-Attest-Key and
+    X-App-Attest-Assertion (assertion over the exact request body)."""
+    body = await request.body()  # cached by Starlette; the same bytes the client signed
+    return await run_in_threadpool(_report, req, request, body, svc, accept_language)
+
+
+def _report(req, request, body, svc: Services, accept_language):
     settings = svc.settings
     p = settings.protection
     salt = settings.rate_limit_salt.get_secret_value()
 
-    identity = svc.attestation.verify(request)
     ip = hashed("ip", client_ip(request, settings), salt)
     svc.limiter.hit(f"{ip}:report", p.report_per_ip_per_hour, 3600)
+    identity = svc.attestation.verify(request, body)
     if identity.device_key:
         svc.limiter.hit(
             f"{hashed('dev', identity.device_key, salt)}:report", p.report_per_device_per_day, DAY

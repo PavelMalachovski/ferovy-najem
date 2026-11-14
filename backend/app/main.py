@@ -7,7 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.deps import Services, make_services
 from app.api.protection import make_attestation
-from app.api.v1 import address, health, report
+from app.api.v1 import address, attest, health, report
 from app.config import Settings, get_settings
 from app.db import get_engine
 
@@ -22,7 +22,8 @@ def create_app(settings: Settings | None = None, services: Services | None = Non
         logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s %(message)s")
         # httpx logs full URLs (address codes, IČO) → keep it quiet (SPEC §4).
         logging.getLogger("httpx").setLevel(logging.WARNING)
-        svc = services or make_services(settings, get_engine(), make_attestation(settings))
+        engine = get_engine()
+        svc = services or make_services(settings, engine, make_attestation(settings, engine))
         app.state.services = svc
         svc.limiter.cleanup()
         yield
@@ -56,6 +57,7 @@ def create_app(settings: Settings | None = None, services: Services | None = Non
     app.include_router(health.router, prefix="/v1", tags=["meta"])
     app.include_router(address.router, prefix="/v1", tags=["address"])
     app.include_router(report.router, prefix="/v1", tags=["report"])
+    app.include_router(attest.router, prefix="/v1", tags=["attestation"])
     return app
 
 

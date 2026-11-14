@@ -29,7 +29,13 @@ class ProtectionSettings(BaseModel):
     report_per_device_per_day: int = 20
     api_kn_daily_budget: int = 450  # of 500/day; leave headroom for ops and ingestion
     trust_forwarded_for: bool = False  # set True only behind our own reverse proxy
-    attestation_mode: str = "disabled"  # disabled | app_attest (M4)
+    attestation_mode: str = "disabled"  # disabled | app_attest
+    app_attest_app_id: str = ""  # "<TeamID>.<bundle id>", e.g. ABCDE12345.cz.ferovynajem.app
+    app_attest_environment: str = "production"  # development for Xcode/TestFlight-debug builds
+    # Devices without App Attest support (old iPhones, Simulator): IP limits only.
+    allow_unattested: bool = False
+    attest_challenge_ttl_s: int = 300
+    attest_per_ip_per_hour: int = 20
 
 
 class Settings(BaseSettings):
