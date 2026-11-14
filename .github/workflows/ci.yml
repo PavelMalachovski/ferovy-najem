@@ -16,10 +16,15 @@ jobs:
       - uses: astral-sh/setup-uv@v10.3.3
         with:
           version: "0.13.8"
+      - name: Start Postgres (PostGIS)
+        working-directory: .
+        run: docker compose up -d --wait db
       - run: uv sync --frozen
       - run: uv run ruff check .
       - run: uv run ruff format --check .
       - run: uv run pytest
+        env:
+          REQUIRE_DB: "1"
 
   images:
     runs-on: ubuntu-latest

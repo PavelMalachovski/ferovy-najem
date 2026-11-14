@@ -23,6 +23,20 @@ class Settings(BaseSettings):
 
     cors_allow_origins: list[str] = []
 
+    # --- Ingestion (SPEC §5.2, §5) ---
+    mf_rent_map_page_url: str = (
+        "https://mf.gov.cz/cs/rozpoctova-politika/podpora-projektoveho-rizeni/"
+        "cenova-mapa/cenova-mapa-infografika"
+    )
+    ruian_csv_url_template: str = "https://vdp.cuzk.gov.cz/vymenny_format/csv/{date}_OB_ADR_csv.zip"
+    # Municipalities loaded for address autocomplete: Praha, Brno. Use --all for whole CZ.
+    ruian_obce: list[int] = [554782, 582786]
+
+    # --- API KN cache TTLs in seconds (SPEC §4.2) ---
+    cuzk_cache_ttl_s: int = 24 * 3600
+    cuzk_cache_negative_ttl_s: int = 6 * 3600
+    cuzk_cache_codebook_ttl_s: int = 7 * 24 * 3600
+
 
 @lru_cache
 def get_settings() -> Settings:
