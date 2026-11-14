@@ -70,6 +70,9 @@ Goal: stop the public backend from being used as a free proxy to API KN (quota b
   - `devicecheck` — fallback for devices where App Attest is unsupported; weaker, used only for rate-limit identity.
   - `web` — reserved for the future web client (e.g. Cloudflare Turnstile). Not implemented in MVP.
   - Rollout: M2 — provider interface + `disabled` mode (dev/Simulator); M4 — `app_attest` enforced for production iOS builds.
+  - Implemented (M4, 2026-11-14): `POST /v1/attest/challenge` (single-use, 5 min) → `POST /v1/attest/register` (full Apple attestation check against the bundled Apple App Attestation Root CA) → every `/v1/report` carries `X-App-Attest-Key` + `X-App-Attest-Assertion`, an assertion over the exact request body; the server checks signature and a strictly increasing counter (replay protection without an extra round trip). Stored: SHA-256(key id), public key, counter, last use; deleted after 180 days unused. **GDPR review: this is a pseudonymous device identifier.**
+  - iOS: key id in the Keychain (this device only); unsupported device or server `required: false` → no headers; `attestation_unknown_key` → re-attest once. Needs the App Attest entitlement + Apple team (M4).
+  - `PROTECTION__ALLOW_UNATTESTED` lets unsupported devices through with IP limits only (default off).
 - **Rate limiting** (limits in config, not hard-coded):
   - per IP: all endpoints (e.g. suggest 60/min, report 10/h);
   - per device (attested key id): report e.g. 20/day;
@@ -80,7 +83,7 @@ Goal: stop the public backend from being used as a free proxy to API KN (quota b
   - negative results (404 / empty search): TTL 6 h — they also count against quota;
   - codebooks (CiselnikyISKN): TTL 7 d;
   - cache holds only API KN data (no personal data per vyhl. 358/2013 § 14a), no request metadata.
-- **Quota watch**: periodic `StavUctu` check; log + alert at 70 % / 90 % of period quota.
+- **Quota watch** (`python -m app.ops.quota_watch`, hourly): `StavUctu` (free) → alert at 70 % / 90 % of the daily quota and 30 days before key expiry; alerts deduplicated per day, logged and optionally sent to Telegram. `python -m app.ops.cleanup` daily.
 
 ### Repo layout (monorepo)
 

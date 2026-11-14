@@ -1265,6 +1265,16 @@
         }
       }
     },
+    "Please update the app from the App Store or TestFlight and try again.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktualizujte prosím aplikaci z App Storu nebo TestFlightu a zkuste to znovu."
+          }
+        }
+      }
+    },
     "Pressure to pay immediately": {
       "localizations": {
         "cs": {
@@ -1661,6 +1671,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Toto IČO není platné (8 číslic s kontrolní číslicí)."
+          }
+        }
+      }
+    },
+    "This app couldn't be verified": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aplikaci se nepodařilo ověřit"
           }
         }
       }

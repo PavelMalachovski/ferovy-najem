@@ -10,12 +10,15 @@ enum APIError: Error, Equatable {
     case rateLimited
     case server(Int)
     case badResponse
+    case attestationUnknownKey
+    case attestationFailed
 }
 
 /// Talks to the FastAPI backend. Base URL comes from Info.plist (APIBaseURL build setting).
-struct APIReportService: ReportService {
+struct APIReportService: ReportService, AttestAPI {
     let baseURL: URL
     var session: URLSession = .shared
+    var attest: AppAttestClient = .shared
 
     static func fromBundle() -> APIReportService {
         let raw = Bundle.main.object(forInfoDictionaryKey: "APIBaseURL") as? String ?? ""
@@ -29,12 +32,40 @@ struct APIReportService: ReportService {
     }
 
     func report(_ request: ReportRequest) async throws -> ReportResponse {
-        var r = URLRequest(url: baseURL.appending(path: "v1/report"))
+        // The exact bytes sent are the bytes signed by App Attest.
+        let body = try APICoding.encoder.encode(request)
+        for attempt in 0..<2 {
+            var r = URLRequest(url: baseURL.appending(path: "v1/report"))
+            r.httpMethod = "POST"
+            r.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            r.httpBody = body
+            for (k, v) in await attest.headers(for: body, api: self) { r.setValue(v, forHTTPHeaderField: k) }
+            do {
+                return try await send(r)
+            } catch APIError.attestationUnknownKey where attempt == 0 {
+                await attest.reset()  // server forgot the key → attest again once
+            }
+        }
+        throw APIError.attestationFailed
+    }
+
+    func attestChallenge() async throws -> AttestChallenge {
+        var r = URLRequest(url: baseURL.appending(path: "v1/attest/challenge"))
         r.httpMethod = "POST"
-        r.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        r.httpBody = try APICoding.encoder.encode(request)
         return try await send(r)
     }
+
+    func attestRegister(keyId: String, attestation: String, challenge: String) async throws {
+        var r = URLRequest(url: baseURL.appending(path: "v1/attest/register"))
+        r.httpMethod = "POST"
+        r.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        r.httpBody = try JSONEncoder().encode(
+            ["key_id": keyId, "attestation": attestation, "challenge": challenge]
+        )
+        let _: Empty = try await send(r)
+    }
+
+    private struct Empty: Decodable {}
 
     private func send<T: Decodable>(_ request: URLRequest) async throws -> T {
         var request = request
@@ -54,6 +85,10 @@ struct APIReportService: ReportService {
         guard let http = response as? HTTPURLResponse else { throw APIError.badResponse }
         switch http.statusCode {
         case 200: break
+        case 204 where T.self == Empty.self: return Empty() as! T
+        case 401:
+            let code = (try? JSONDecoder().decode(ErrorBody.self, from: data))?.detail.code
+            throw code == "attestation_unknown_key" ? APIError.attestationUnknownKey : APIError.attestationFailed
         case 429: throw APIError.rateLimited
         default: throw APIError.server(http.statusCode)
         }
@@ -63,6 +98,11 @@ struct APIReportService: ReportService {
             throw APIError.badResponse
         }
     }
+}
+
+private struct ErrorBody: Decodable {
+    struct Detail: Decodable { let code: String }
+    let detail: Detail
 }
 
 /// Offline demo/preview service backed by real responses recorded from the backend

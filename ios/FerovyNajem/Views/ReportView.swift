@@ -145,7 +145,7 @@ private struct ErrorView: View {
 
     var body: some View {
         VStack(spacing: 16) {
-            Image(systemName: error == .rateLimited ? "hourglass" : "wifi.exclamationmark")
+            Image(systemName: icon)
                 .font(.system(size: 44))
                 .foregroundStyle(.secondary)
             Text(title).font(.title3.bold()).multilineTextAlignment(.center)
@@ -158,11 +158,21 @@ private struct ErrorView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
+    private var icon: String {
+        switch error {
+        case .rateLimited: "hourglass"
+        case .attestationFailed, .attestationUnknownKey: "lock.trianglebadge.exclamationmark"
+        case .offline: "wifi.exclamationmark"
+        case .server, .badResponse: "exclamationmark.triangle"
+        }
+    }
+
     private var title: LocalizedStringKey {
         switch error {
         case .offline: "Can't reach the server"
         case .rateLimited: "Too many checks"
         case .server, .badResponse: "Something went wrong"
+        case .attestationFailed, .attestationUnknownKey: "This app couldn't be verified"
         }
     }
 
@@ -171,6 +181,8 @@ private struct ErrorView: View {
         case .offline: "Check your internet connection and try again."
         case .rateLimited: "You've made a lot of checks in a short time. Please try again in an hour."
         case .server, .badResponse: "The check couldn't be completed. Please try again in a moment."
+        case .attestationFailed, .attestationUnknownKey:
+            "Please update the app from the App Store or TestFlight and try again."
         }
     }
 }
