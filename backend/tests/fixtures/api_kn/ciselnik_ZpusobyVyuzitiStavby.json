@@ -1,0 +1,187 @@
+{
+  "data": [
+    {
+      "kod": 1,
+      "nazev": "průmyslový objekt",
+      "zkratka": "prům.obj",
+      "platnostDo": null
+    },
+    {
+      "kod": 2,
+      "nazev": "zemědělská usedlost",
+      "zkratka": "zem.used",
+      "platnostDo": null
+    },
+    {
+      "kod": 3,
+      "nazev": "objekt k bydlení",
+      "zkratka": "bydlení",
+      "platnostDo": null
+    },
+    {
+      "kod": 4,
+      "nazev": "objekt lesního hospodářství",
+      "zkratka": "les.hosp",
+      "platnostDo": null
+    },
+    {
+      "kod": 5,
+      "nazev": "objekt občanské vybavenosti",
+      "zkratka": "obč.vyb",
+      "platnostDo": null
+    },
+    {
+      "kod": 6,
+      "nazev": "bytový dům",
+      "zkratka": "byt.dům",
+      "platnostDo": null
+    },
+    {
+      "kod": 7,
+      "nazev": "rodinný dům",
+      "zkratka": "rod.dům",
+      "platnostDo": null
+    },
+    {
+      "kod": 8,
+      "nazev": "stavba pro rodinnou rekreaci",
+      "zkratka": "rod.rekr",
+      "platnostDo": null
+    },
+    {
+      "kod": 9,
+      "nazev": "stavba pro shromažďování většího počtu osob",
+      "zkratka": "shromaž.",
+      "platnostDo": null
+    },
+    {
+      "kod": 10,
+      "nazev": "stavba pro obchod",
+      "zkratka": "obchod",
+      "platnostDo": null
+    },
+    {
+      "kod": 11,
+      "nazev": "stavba ubytovacího zařízení",
+      "zkratka": "ubyt.zař",
+      "platnostDo": null
+    },
+    {
+      "kod": 12,
+      "nazev": "stavba pro výrobu a skladování",
+      "zkratka": "výroba",
+      "platnostDo": null
+    },
+    {
+      "kod": 13,
+      "nazev": "zemědělská stavba",
+      "zkratka": "zem.stav",
+      "platnostDo": null
+    },
+    {
+      "kod": 14,
+      "nazev": "stavba pro administrativu",
+      "zkratka": "adminis.",
+      "platnostDo": null
+    },
+    {
+      "kod": 15,
+      "nazev": "stavba občanského vybavení",
+      "zkratka": "obč.vyb.",
+      "platnostDo": null
+    },
+    {
+      "kod": 16,
+      "nazev": "stavba technického vybavení",
+      "zkratka": "tech.vyb",
+      "platnostDo": null
+    },
+    {
+      "kod": 17,
+      "nazev": "stavba pro dopravu",
+      "zkratka": "doprava",
+      "platnostDo": null
+    },
+    {
+      "kod": 18,
+      "nazev": "garáž",
+      "zkratka": "garáž",
+      "platnostDo": null
+    },
+    {
+      "kod": 19,
+      "nazev": "jiná stavba",
+      "zkratka": "jiná st.",
+      "platnostDo": null
+    },
+    {
+      "kod": 20,
+      "nazev": "víceúčelová stavba",
+      "zkratka": "víceúčel",
+      "platnostDo": null
+    },
+    {
+      "kod": 21,
+      "nazev": "skleník",
+      "zkratka": "skleník",
+      "platnostDo": null
+    },
+    {
+      "kod": 22,
+      "nazev": "přehrada",
+      "zkratka": "přehrada",
+      "platnostDo": null
+    },
+    {
+      "kod": 23,
+      "nazev": "hráz přehrazující vodní tok nebo údolí",
+      "zkratka": "hráz př.",
+      "platnostDo": null
+    },
+    {
+      "kod": 24,
+      "nazev": "hráz k ochraně nemovitostí před zaplavením při povodni",
+      "zkratka": "hráz pod",
+      "platnostDo": null
+    },
+    {
+      "kod": 25,
+      "nazev": "hráz ohrazující umělou vodní nádrž",
+      "zkratka": "hráz ohr",
+      "platnostDo": null
+    },
+    {
+      "kod": 26,
+      "nazev": "jez",
+      "zkratka": "jez",
+      "platnostDo": null
+    },
+    {
+      "kod": 27,
+      "nazev": "stavba k plaveb.účelům v korytech nebo na březích vod.toků",
+      "zkratka": "plav.úč.",
+      "platnostDo": null
+    },
+    {
+      "kod": 28,
+      "nazev": "stavba k využití vodní energie (vodní elektrárna)",
+      "zkratka": "vodní el",
+      "platnostDo": null
+    },
+    {
+      "kod": 29,
+      "nazev": "stavba odkaliště",
+      "zkratka": "odkališ.",
+      "platnostDo": null
+    },
+    {
+      "kod": 30,
+      "nazev": "rozestavěné jednotky",
+      "zkratka": "rozest.j",
+      "platnostDo": null
+    }
+  ],
+  "zpravy": [],
+  "aktualnostDatK": "2026-11-14T17:00:00",
+  "provedenoVolani": 4
+}

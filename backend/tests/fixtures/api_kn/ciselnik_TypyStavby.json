@@ -1,0 +1,49 @@
+{
+  "data": [
+    {
+      "kod": 1,
+      "nazev": "budova s číslem popisným",
+      "zkratka": "č.p.",
+      "platnostDo": null
+    },
+    {
+      "kod": 2,
+      "nazev": "budova s číslem evidenčním",
+      "zkratka": "č.e.",
+      "platnostDo": null
+    },
+    {
+      "kod": 3,
+      "nazev": "budova bez čísla popisného nebo evidenčního",
+      "zkratka": "bez čp/če",
+      "platnostDo": null
+    },
+    {
+      "kod": 4,
+      "nazev": "rozestavěná budova",
+      "zkratka": "rozestav.",
+      "platnostDo": null
+    },
+    {
+      "kod": 5,
+      "nazev": "poschoďová garáž",
+      "zkratka": "posch.gar",
+      "platnostDo": "1999-12-31T00:00:00"
+    },
+    {
+      "kod": 6,
+      "nazev": "vodní dílo",
+      "zkratka": "vod.dílo",
+      "platnostDo": null
+    },
+    {
+      "kod": 7,
+      "nazev": "budova s rozestavěnými jednotkami",
+      "zkratka": "s roz.jed",
+      "platnostDo": null
+    }
+  ],
+  "zpravy": [],
+  "aktualnostDatK": "2026-11-14T17:00:00",
+  "provedenoVolani": 3
+}

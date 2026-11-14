@@ -1,0 +1,61 @@
+{
+  "data": [
+    {
+      "kod": 1,
+      "nazev": "byt",
+      "zkratka": "byt",
+      "platnostDo": null
+    },
+    {
+      "kod": 2,
+      "nazev": "ateliér",
+      "zkratka": "ateliér",
+      "platnostDo": null
+    },
+    {
+      "kod": 3,
+      "nazev": "garáž",
+      "zkratka": "garáž",
+      "platnostDo": null
+    },
+    {
+      "kod": 4,
+      "nazev": "dílna nebo provozovna",
+      "zkratka": "dílna",
+      "platnostDo": null
+    },
+    {
+      "kod": 5,
+      "nazev": "jiný nebytový prostor",
+      "zkratka": "j.nebyt",
+      "platnostDo": null
+    },
+    {
+      "kod": 6,
+      "nazev": "rozestavěná jednotka",
+      "zkratka": "rozest.",
+      "platnostDo": null
+    },
+    {
+      "kod": 7,
+      "nazev": "skupina bytů",
+      "zkratka": "sk.byt",
+      "platnostDo": null
+    },
+    {
+      "kod": 8,
+      "nazev": "skupina nebytových prostorů",
+      "zkratka": "sk.neb",
+      "platnostDo": null
+    },
+    {
+      "kod": 9,
+      "nazev": "skupina bytů a nebytových prostorů",
+      "zkratka": "sk.bneb",
+      "platnostDo": null
+    }
+  ],
+  "zpravy": [],
+  "aktualnostDatK": "2026-11-14T17:00:00",
+  "provedenoVolani": 2
+}

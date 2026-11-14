@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "kod": 1,
+      "nazev": "byt nebo nebytový prostor",
+      "zkratka": null,
+      "platnostDo": "2013-12-31T00:00:00"
+    },
+    {
+      "kod": 2,
+      "nazev": "rozestavěný byt nebo nebytový prostor",
+      "zkratka": "rozest.",
+      "platnostDo": "2013-12-31T00:00:00"
+    },
+    {
+      "kod": 3,
+      "nazev": "jednotka vymezená podle zákona o vlastnictví bytů",
+      "zkratka": "byt.z.",
+      "platnostDo": null
+    },
+    {
+      "kod": 4,
+      "nazev": "jednotka vymezená podle občanského zákoníku",
+      "zkratka": "obč.z.",
+      "platnostDo": null
+    }
+  ],
+  "zpravy": [],
+  "aktualnostDatK": "2026-11-14T17:00:00",
+  "provedenoVolani": 1
+}
