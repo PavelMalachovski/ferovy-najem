@@ -132,6 +132,7 @@ Flow:
 3. Building `parcely[0].katastralniUzemi` → k.ú. code (+ `obec`) → MF rent map lookup. No extra call.
 4. Unit number (číslo jednotky, e.g. 1234/12) is **optional**.
    - Given: match in `jednotky` → `/Jednotky/{id}`. **`cisloJednotky` is encoded as `cisloDomovni × 10000 + unit`** (1403/24 → `14030024`); match against every `cislaDomovni` of the building.
+   - Deep link for the guided owner check: `https://nahlizenidokn.cuzk.gov.cz/ZobrazObjekt.aspx?typ=Budova&id=<ISKN id>` (verified 2026-11-14); `typ=Jednotka&id=<ISKN id>` by analogy (site is bot-protected, not fetched). Never fetch Nahlížení server-side.
    - Not given: building-level check only (building found, building-level plomby, k.ú.); report says so and shows the hint: *"Ask the landlord for the unit number (číslo jednotky) or LV number. A genuine owner can give it right away."* (cs/en via codes).
    - Building has no units (whole-house ownership): skip the unit check and say so.
 5. For each item in `rizeniPlomby` (unit and building) → `/Rizeni/{id}` → type + status + date.
@@ -178,13 +179,14 @@ Checked against `2026-11-15_Cenova-mapa.xlsx` (Q3 2026, published 2026-11-11) an
 - Current version: reference date 2025-08-31; store and show it in the report.
 - Prague option (v1.1): IPR Praha open data (CC BY, "data base © IPR Praha") adds category "protected by city flood defences", useful for fair wording.
 
-## 6. Backend API (draft)
+## 6. Backend API (implemented in M2; contract = `/openapi.json`)
 
 ```
 GET  /v1/address/suggest?q=...           → [{ruian_code, label, lat, lon}]
 POST /v1/report
      { ruian_code, unit_number?, rent_czk, area_m2, disposition, landlord_ico?,
-       features{ lift, balcony, terrace, furnished, garage, new_build }, answers{...} }
+       features{ lift, balcony, terrace, furnished, garage, new_build }, answers{ <question>: bool } }
+     (unknown fields → 422)
      → { overall: green|yellow|red,
          price:     { status, asking_per_m2, reference_per_m2, band_low, band_high, raw_min, raw_median, raw_max, coverage, ratio, unit_name, unit_kind: ku|obec, size_category, period },
          property:  { status, check_level: unit|building, building_found, unit_found, unit_use, proceedings[{type, status, received, scope: unit|building}], hints[], kn_deeplink, data_as_of },
@@ -194,6 +196,14 @@ POST /v1/report
          disclaimer }
 GET  /v1/health
 ```
+
+Each block carries `status` (green|yellow|red|unknown), `available`, stable signal codes and raw facts; see `app/api/v1/schemas.py`. A block whose source is down or over quota is `unknown` / `available: false`; the report itself always returns 200.
+
+Landlord rules (MVP, decided 2026-11-14): ARES first. Natural persons (ARES `pravniForma` 101, 102, 105–108, 424, 425, or unknown) → no name returned, no ISIR query. Legal persons → ISIR only if ARES `stavZdrojeIr` ≠ NEEXISTUJICI (verified: AKTIVNI for a company in konkurs, NEEXISTUJICI for a clean one). Insolvency in progress or company not active → red.
+
+Address rule: flood check uses the building's definiční bod from API KN (any address in CZ), fallback to RÚIAN point. Inside aktivní zóna / inside Q100 / within `flood_near_m` (default 100 m) → yellow, with "indicative" wording.
+
+Logging: access log without query string or client IP; httpx request logging off (URLs contain address codes).
 
 `unit_number` is optional (§5.1 step 4). Headers: `X-Client-Attestation` (provider + assertion, §4.2), `Accept-Language`.
 
@@ -239,7 +249,7 @@ Screens:
 |---|---|---|
 | M0 | Setup | Repo, Docker compose (API + PostGIS), CI, API KN key works (one test call) |
 | M1 | Data | MF XLSX ingested (latest quarter), RÚIAN addresses ingested for autocomplete, address → building → k.ú. → unit → řízení resolves via API KN; API KN cache (moved from M2: 500 calls/day) — **done 2026-11-14** |
-| M2 | Backend | `/address/suggest` + `/report` with price + ARES/ISIR + API KN; IP rate limiting; attestation interface (disabled mode); tests with fixtures |
+| M2 | Backend | `/address/suggest` + `/report` with price + ARES/ISIR + API KN + flood zones; IP rate limiting; API KN daily budget; attestation interface (disabled mode); tests with fixtures — **done 2026-11-14** |
 | M3 | iOS | Input → report flow works in Simulator against local backend |
 | M4 | Beta | Backend deployed, App Attest enforced, per-device limits, quota alerts, TestFlight build, 10–20 real renters test it |
 | M5 | Money | StoreKit full report, landing page, App Store submission |
