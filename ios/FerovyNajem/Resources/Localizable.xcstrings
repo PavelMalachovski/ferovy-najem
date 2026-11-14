@@ -61,6 +61,78 @@
         }
       }
     },
+    "%lld of 4 required details filled": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vyplněno %lld ze 4 povinných údajů"
+          }
+        }
+      }
+    },
+    "%lld serious": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld serious"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld serious"
+                }
+              }
+            }
+          }
+        },
+        "cs": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld vážný"
+                }
+              },
+              "few": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld vážné"
+                }
+              },
+              "many": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld vážného"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld vážných"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld to check": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld k ověření"
+          }
+        }
+      }
+    },
     "%lld warning signs": {
       "localizations": {
         "en": {
@@ -109,6 +181,46 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "**Ask** the landlord for the unit number or the LV number.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "**Požádejte** pronajímatele o číslo jednotky nebo LV."
+          }
+        }
+      }
+    },
+    "**Ask** what ownership change is being registered on the unit (%@).": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "**Zeptejte se**, jaká změna vlastníka se na jednotce zapisuje (%@)."
+          }
+        }
+      }
+    },
+    "**Check the owner** in the cadastre with your eID and compare the name with the landlord.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "**Ověřte si vlastníka** v katastru přes eID a porovnejte jméno s pronajímatelem."
+          }
+        }
+      }
+    },
+    "**Don't pay a deposit** until you have seen the flat in person and signed the contract.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "**Neplaťte kauci**, dokud byt neuvidíte osobně a nepodepíšete smlouvu."
           }
         }
       }
@@ -183,6 +295,16 @@
         }
       }
     },
+    "Answered %lld of %lld · no answer doesn't count as “no”": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zodpovězeno %1$lld ze %2$lld · bez odpovědi nepočítáme jako „ne“"
+          }
+        }
+      }
+    },
     "Are you pushed to pay today or lose the flat?": {
       "localizations": {
         "cs": {
@@ -199,16 +321,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Požádejte pronajímatele o číslo jednotky nebo číslo LV. Skutečný vlastník ho dá hned."
-          }
-        }
-      }
-    },
-    "Asking prices in the area": {
-      "localizations": {
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nabídkové ceny v lokalitě"
           }
         }
       }
@@ -288,7 +400,7 @@
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pozor"
+            "value": "Ověřte"
           }
         }
       }
@@ -303,6 +415,16 @@
         }
       }
     },
+    "Check the owner in the cadastre": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ověřit vlastníka v katastru"
+          }
+        }
+      }
+    },
     "Check the owner yourself": {
       "localizations": {
         "cs": {
@@ -313,12 +435,32 @@
         }
       }
     },
+    "Checked with Férový nájem. Indicative information, not a legal assessment.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prověřeno v aplikaci Férový nájem. Orientační informace, není právní posouzení."
+          }
+        }
+      }
+    },
     "Checking the cadastre, rent map and registers…": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
             "value": "Prověřujeme katastr, cenovou mapu a rejstříky…"
+          }
+        }
+      }
+    },
+    "Choose the layout": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vyberte dispozici"
           }
         }
       }
@@ -413,6 +555,16 @@
         }
       }
     },
+    "Details · most serious first": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Podrobnosti · od nejvážnějšího"
+          }
+        }
+      }
+    },
     "Did they avoid giving you the unit number or LV when you asked?": {
       "localizations": {
         "cs": {
@@ -473,12 +625,22 @@
         }
       }
     },
-    "E.g. 12 from 1001/12. Don't have it? We'll check the building – and ask the landlord: a genuine owner knows it.": {
+    "Enter the IČO and we'll check it in ARES": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Např. 12 z 1001/12. Nemáte ho? Ověříme dům – a zeptejte se pronajímatele: skutečný vlastník ho zná."
+            "value": "Zadejte IČO a ověříme ji v ARES"
+          }
+        }
+      }
+    },
+    "Enter the address": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zadejte adresu"
           }
         }
       }
@@ -493,12 +655,22 @@
         }
       }
     },
-    "Enter the company's IČO to check it in ARES and the insolvency register.": {
+    "Enter the floor area": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Zadejte IČO firmy a ověříme ji v ARES a insolvenčním rejstříku."
+            "value": "Zadejte plochu"
+          }
+        }
+      }
+    },
+    "Enter the rent": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zadejte nájem"
           }
         }
       }
@@ -583,32 +755,12 @@
         }
       }
     },
-    "Garage or parking included": {
-      "localizations": {
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Garáž nebo parkování v ceně"
-          }
-        }
-      }
-    },
     "Get started": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
             "value": "Začít"
-          }
-        }
-      }
-    },
-    "How is the deal going?": {
-      "localizations": {
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Jak domluva probíhá?"
           }
         }
       }
@@ -683,12 +835,12 @@
         }
       }
     },
-    "IČO (optional)": {
+    "Kč per month": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "IČO (nepovinné)"
+            "value": "Kč měsíčně"
           }
         }
       }
@@ -709,16 +861,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pronajímatel"
-          }
-        }
-      }
-    },
-    "Landlord company": {
-      "localizations": {
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Firma pronajímatele"
           }
         }
       }
@@ -813,12 +955,12 @@
         }
       }
     },
-    "No IČO entered. Private landlord? Use the owner check below.": {
+    "No": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "IČO nezadáno. Soukromý pronajímatel? Použijte ověření vlastníka níže."
+            "value": "Ne"
           }
         }
       }
@@ -923,16 +1065,6 @@
         }
       }
     },
-    "Only if you rent from a company.": {
-      "localizations": {
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Jen pokud pronajímá firma."
-          }
-        }
-      }
-    },
     "Open Nahlížení do katastru": {
       "localizations": {
         "cs": {
@@ -953,12 +1085,32 @@
         }
       }
     },
+    "Optional · e.g. 12 from 1001/12": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nepovinné · např. 12 z 1001/12"
+          }
+        }
+      }
+    },
     "Other proceeding": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
             "value": "Jiné řízení"
+          }
+        }
+      }
+    },
+    "Parking": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Parkování"
           }
         }
       }
@@ -1043,6 +1195,16 @@
         }
       }
     },
+    "Questions without an answer: %lld": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Otázky bez odpovědi: %lld"
+          }
+        }
+      }
+    },
     "Received %@": {
       "localizations": {
         "cs": {
@@ -1073,16 +1235,6 @@
         }
       }
     },
-    "Rent and size": {
-      "localizations": {
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nájem a velikost"
-          }
-        }
-      }
-    },
     "Rent price map (cenová mapa nájemního bydlení)": {
       "localizations": {
         "cs": {
@@ -1093,12 +1245,12 @@
         }
       }
     },
-    "Rent without utilities and service charges.": {
+    "Renting from a company?": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nájem bez služeb a energií."
+            "value": "Pronajímá firma?"
           }
         }
       }
@@ -1133,12 +1285,32 @@
         }
       }
     },
+    "Serious": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vážné"
+          }
+        }
+      }
+    },
     "Serious warning signs": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
             "value": "Vážné varovné signály"
+          }
+        }
+      }
+    },
+    "Share result": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sdílet výsledek"
           }
         }
       }
@@ -1163,12 +1335,42 @@
         }
       }
     },
+    "Skip": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Přeskočit"
+          }
+        }
+      }
+    },
     "Status in ARES": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
             "value": "Stav v ARES"
+          }
+        }
+      }
+    },
+    "Step 1 of 2 · 4 details are enough": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Krok 1 ze 2 · stačí 4 údaje"
+          }
+        }
+      }
+    },
+    "Step 2 of 2 · answer what you know": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Krok 2 ze 2 · odpovězte, co víte"
           }
         }
       }
@@ -1323,6 +1525,16 @@
         }
       }
     },
+    "Unit number": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Číslo jednotky"
+          }
+        }
+      }
+    },
     "Unit number (optional)": {
       "localizations": {
         "cs": {
@@ -1339,6 +1551,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Číslo jednotky nebo LV nesděleno"
+          }
+        }
+      }
+    },
+    "Usual (MF)": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Obvykle (MF)"
           }
         }
       }
@@ -1373,16 +1595,6 @@
         }
       }
     },
-    "Warning": {
-      "localizations": {
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Varování"
-          }
-        }
-      }
-    },
     "We never show or store owner names.": {
       "localizations": {
         "cs": {
@@ -1413,6 +1625,16 @@
         }
       }
     },
+    "What to do now": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Co udělat teď"
+          }
+        }
+      }
+    },
     "What's included": {
       "localizations": {
         "cs": {
@@ -1429,6 +1651,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "V obvyklém rozmezí pro k. ú. %@"
+          }
+        }
+      }
+    },
+    "Yes": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ano"
+          }
+        }
+      }
+    },
+    "You": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vy"
+          }
+        }
+      }
+    },
+    "You skipped the questions": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Otázky jste přeskočili"
           }
         }
       }
@@ -1499,6 +1751,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "na jednotce"
+          }
+        }
+      }
+    },
+    "optional": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "nepovinné"
+          }
+        }
+      }
+    },
+    "without utilities": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "bez služeb a energií"
           }
         }
       }

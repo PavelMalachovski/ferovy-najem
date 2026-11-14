@@ -14,12 +14,25 @@ struct ReportView: View {
                 ScrollViewReader { proxy in
                 ScrollView {
                     VStack(spacing: 12) {
-                        OverallHeader(report: report)
-                        PriceCard(price: report.price, expanded: expandAll)
-                        PropertyCard(property: report.property, expanded: expandAll)
-                        LandlordCard(landlord: report.landlord, expanded: expandAll)
-                        AddressCard(address: report.address, expanded: expandAll)
-                        ScamCard(scam: report.scam, expanded: expandAll)
+                        OverallHeader(report: report, blocks: blocks(report))
+                        NextStepsCard(report: report)
+                        Text("Details · most serious first")
+                            .font(.footnote.weight(.semibold))
+                            .foregroundStyle(.secondary)
+                            .textCase(.uppercase)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal, 4)
+                            .padding(.top, 8)
+                        ForEach(blocks(report)) { block in
+                            card(block, report)
+                        }
+                        ShareLink(item: shareText(report)) {
+                            Label("Share result", systemImage: "square.and.arrow.up")
+                                .frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(.bordered)
+                        .controlSize(.large)
+                        .padding(.top, 4)
                         OwnerCheckSection()
                         DisclaimerFooter(dataAsOf: report.dataAsOf).id("bottom")
                     }
@@ -57,6 +70,40 @@ struct ReportView: View {
         .task { report = try? await service.report(for: request) }
     }
 
+    /// Blocks sorted by severity (stable: same status keeps the default order).
+    /// The landlord block is shown only when an IČO was entered.
+    private func blocks(_ report: Report) -> [Block] {
+        var all: [Block] = [.init(kind: .price, status: report.price.status),
+                            .init(kind: .property, status: report.property.status)]
+        if let l = report.landlord { all.append(.init(kind: .landlord, status: l.status)) }
+        all.append(.init(kind: .address, status: report.address.status))
+        all.append(.init(kind: .scam, status: report.scam.status))
+        return all.enumerated()
+            .sorted { $0.element.status != $1.element.status ? $0.element.status > $1.element.status : $0.offset < $1.offset }
+            .map(\.element)
+    }
+
+    @ViewBuilder
+    private func card(_ block: Block, _ report: Report) -> some View {
+        let expanded = expandAll || block.status == .red
+        switch block.kind {
+        case .price: PriceCard(price: report.price, areaM2: request.areaM2, expanded: expanded)
+        case .property: PropertyCard(property: report.property, expanded: expanded)
+        case .landlord: if let l = report.landlord { LandlordCard(landlord: l, expanded: expanded) }
+        case .address: AddressCard(address: report.address, expanded: expanded)
+        case .scam:
+            ScamCard(scam: report.scam, unanswered: ScamQuestion.allCases.count - request.answers.count,
+                     expanded: expanded)
+        }
+    }
+
+    private func shareText(_ report: Report) -> String {
+        [String(localized: report.overall.headline),
+         report.addressLabel,
+         String(localized: "Checked with Férový nájem. Indicative information, not a legal assessment.")]
+            .joined(separator: "\n")
+    }
+
     /// DEBUG-only launch flags for screenshots; always false in release builds.
     static func debugFlag(_ key: String) -> Bool {
         #if DEBUG
@@ -67,36 +114,107 @@ struct ReportView: View {
     }
 }
 
-// MARK: - Header
+private struct Block: Identifiable {
+    enum Kind { case price, property, landlord, address, scam }
+    let kind: Kind
+    let status: Status
+    var id: Kind { kind }
+}
+
+// MARK: - Header + next steps
 
 private struct OverallHeader: View {
     let report: Report
+    let blocks: [Block]
+
+    private var serious: Int { blocks.filter { $0.status == .red }.count }
+    private var toCheck: Int { blocks.filter { $0.status == .yellow }.count }
 
     var body: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 10) {
             Image(systemName: report.overall.symbol)
-                .font(.system(size: 52, weight: .semibold))
+                .font(.system(size: 40, weight: .semibold))
                 .foregroundStyle(.white)
-                .frame(width: 88, height: 88)
+                .frame(width: 72, height: 72)
                 .background(report.overall.color.gradient, in: Circle())
                 .accessibilityHidden(true)
             Text(report.overall.headline)
                 .font(.title2.bold())
                 .multilineTextAlignment(.center)
-            Label(report.addressLabel, systemImage: "mappin.circle")
+            Text(verbatim: report.addressLabel)
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
+            if serious + toCheck > 0 {
+                HStack(spacing: 8) {
+                    if serious > 0 { CountBadge(status: .red, text: Text("\(serious) serious")) }
+                    if toCheck > 0 { CountBadge(status: .yellow, text: Text("\(toCheck) to check")) }
+                }
+                .padding(.top, 2)
+            }
         }
         .frame(maxWidth: .infinity)
-        .padding(.vertical, 24)
+        .padding(.vertical, 22)
         .padding(.horizontal, 16)
-        .background(
-            report.overall.color.opacity(0.10),
-            in: .rect(cornerRadius: 20)
-        )
+        .background(report.overall.color.opacity(0.10), in: .rect(cornerRadius: 20))
         .padding(.top, 8)
         .accessibilityElement(children: .combine)
+    }
+}
+
+private struct CountBadge: View {
+    let status: Status
+    let text: Text
+
+    var body: some View {
+        Label { text } icon: { Image(systemName: status.symbol) }
+            .font(.subheadline.weight(.semibold))
+            .foregroundStyle(status.color)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 6)
+            .background(Color(.secondarySystemGroupedBackground), in: Capsule())
+    }
+}
+
+/// The answer to "what do I do now", right under the verdict.
+private struct NextStepsCard: View {
+    let report: Report
+
+    private var steps: [Text] {
+        var s = [
+            Text("**Don't pay a deposit** until you have seen the flat in person and signed the contract."),
+            Text("**Check the owner** in the cadastre with your eID and compare the name with the landlord."),
+        ]
+        if let p = report.property.proceedings.first(where: { $0.kind == .vklad && $0.scope == .unit }) {
+            s.append(Text("**Ask** what ownership change is being registered on the unit (\(p.number))."))
+        } else if report.property.hints.contains(.askUnitNumber) || report.property.unitFound == false {
+            s.append(Text("**Ask** the landlord for the unit number or the LV number."))
+        }
+        return s
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            Text("What to do now").font(.title3.bold())
+            ForEach(Array(steps.enumerated()), id: \.offset) { i, step in
+                HStack(alignment: .top, spacing: 12) {
+                    Text(verbatim: "\(i + 1)")
+                        .font(.subheadline.bold())
+                        .foregroundStyle(.white)
+                        .frame(width: 26, height: 26)
+                        .background(Color.accentColor, in: Circle())
+                        .accessibilityHidden(true)
+                    step.fixedSize(horizontal: false, vertical: true)
+                }
+            }
+            Link(destination: URL(string: "https://nahlizenidokn.cuzk.gov.cz")!) {
+                Label("Check the owner in the cadastre", systemImage: "arrow.up.right")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .controlSize(.large)
+        }
+        .card()
     }
 }
 
@@ -104,9 +222,14 @@ private struct OverallHeader: View {
 
 private struct PriceCard: View {
     let price: PriceBlock
+    let areaM2: Double
     let expanded: Bool
+    var config: ScoringConfig = .default
 
     private var pct: String { abs(price.ratio - 1).formatted(.percent.precision(.fractionLength(0))) }
+    private var monthly: Double { price.askingPerM2 * areaM2 }
+    private var usualLow: Double { price.referencePerM2 * config.yellowBelow * areaM2 }
+    private var usualHigh: Double { price.referencePerM2 * config.yellowAbove * areaM2 }
 
     private var summary: Text {
         switch price.verdict {
@@ -120,13 +243,28 @@ private struct PriceCard: View {
     var body: some View {
         BlockCard("Price", symbol: "chart.bar.fill", status: price.status, summary: summary,
                   expanded: expanded) {
-            PriceRangeBar(price: price).padding(.vertical, 4)
-            DetailRow("Your rent", Text(verbatim: price.askingPerM2.czkPerM2))
-            DetailRow("MF reference rent", Text(verbatim: price.referencePerM2.czkPerM2))
-            if price.surchargePerM2 > 0 {
-                DetailRow("incl. features", Text(verbatim: "+" + price.surchargePerM2.czkPerM2))
+            HStack(alignment: .top, spacing: 12) {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Your rent").font(.caption).foregroundStyle(.secondary)
+                    Text(verbatim: monthly.czk)
+                        .font(.title2.bold())
+                        .foregroundStyle(price.status == .green ? Color.primary : price.status.color)
+                    Text(verbatim: price.askingPerM2.czkPerM2).font(.caption).foregroundStyle(.secondary)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Usual (MF)").font(.caption).foregroundStyle(.secondary)
+                    Text(verbatim: "\(usualLow.hundreds)–\(usualHigh.hundreds)").font(.title2.bold())
+                    Text("Kč per month").font(.caption).foregroundStyle(.secondary)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
-            DetailRow("Asking prices in the area", Text(verbatim: "\(price.minPerM2.czk) – \(price.maxPerM2.czkPerM2)"))
+            .minimumScaleFactor(0.7)
+            PriceRangeBar(price: price)
+            DetailRow("MF reference rent", Text(verbatim: (price.referencePerM2 * areaM2).czk))
+            if price.surchargePerM2 > 0 {
+                DetailRow("incl. features", Text(verbatim: "+" + (price.surchargePerM2 * areaM2).czk))
+            }
             DetailRow("Cadastral area", Text(verbatim: price.kuName))
             DetailRow("Data period", Text(verbatim: price.period))
             Text("The MF map is based on asking prices and is not authoritative. Rent without service charges.")
@@ -216,26 +354,16 @@ private struct ProceedingRow: View {
 }
 
 private struct LandlordCard: View {
-    let landlord: LandlordBlock?
+    let landlord: LandlordBlock
     let expanded: Bool
 
     var body: some View {
-        if let l = landlord {
-            BlockCard("Landlord", symbol: "briefcase.fill", status: l.status,
-                      summary: Text("\(l.name) – active, no insolvency"), expanded: expanded) {
-                DetailRow("Company", Text(verbatim: l.name))
-                DetailRow("IČO", Text(verbatim: l.ico))
-                DetailRow("Status in ARES", Text(l.active ? "Active" : "Inactive"))
-                DetailRow("Insolvency register", Text(l.insolvency ? "Found" : "No record"))
-            }
-        } else {
-            BlockCard("Landlord", symbol: "briefcase.fill", status: .unknown,
-                      summary: Text("No IČO entered. Private landlord? Use the owner check below."),
-                      expanded: false) {
-                Text("Enter the company's IČO to check it in ARES and the insolvency register.")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-            }
+        BlockCard("Landlord", symbol: "briefcase.fill", status: landlord.status,
+                  summary: Text("\(landlord.name) – active, no insolvency"), expanded: expanded) {
+            DetailRow("Company", Text(verbatim: landlord.name))
+            DetailRow("IČO", Text(verbatim: landlord.ico))
+            DetailRow("Status in ARES", Text(landlord.active ? "Active" : "Inactive"))
+            DetailRow("Insolvency register", Text(landlord.insolvency ? "Found" : "No record"))
         }
     }
 }
@@ -264,12 +392,13 @@ private struct AddressCard: View {
 
 private struct ScamCard: View {
     let scam: ScamBlock
+    let unanswered: Int
     let expanded: Bool
 
     private var summary: Text {
-        scam.flags.isEmpty
-            ? Text("No typical scam patterns in your answers")
-            : Text("\(scam.flags.count) warning signs")
+        if !scam.flags.isEmpty { return Text("\(scam.flags.count) warning signs") }
+        if scam.status == .unknown { return Text("You skipped the questions") }
+        return Text("No typical scam patterns in your answers")
     }
 
     var body: some View {
@@ -290,6 +419,11 @@ private struct ScamCard: View {
                     .font(.subheadline)
                 }
                 Text("These patterns are common in rental scams. They don't prove anything about a specific person.")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+            }
+            if unanswered > 0 && scam.status != .unknown {
+                Text("Questions without an answer: \(unanswered)")
                     .font(.footnote)
                     .foregroundStyle(.secondary)
             }
